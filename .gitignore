@@ -1,0 +1,95 @@
+# === BLOAT & INTERNET-SOURCED ===
+
+# Library (PDFs from the internet)
+Library/
+
+# REAPER (commercial software, plugins, large binaries)
+REAPER/
+
+# Telegram exports
+Telegram/
+
+# Media files
+Media/
+
+# Archive (old backups)
+Archive/
+
+# Batch export zips
+data-*.zip
+
+# Post history dump
+posthist.txt
+
+# ColorNote stuff
+colornotes/
+Decrypt-ColorNoteBackup/
+1.backup
+
+# Resilio sync internals
+.sync/
+
+# Conflict folders
+*.Conflict/
+
+# === GENERATED/BINARY ===
+*.pdf
+*.PDF
+*.7z
+*.zip
+*.exe
+*.dll
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp3
+*.wav
+*.flac
+*.ogg
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Temp files
+*.tmp
+*.temp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Log files
+*.log
+
+# === SENSITIVE ===
+# (API keys live in .bashrc, not here, but just in case)
+*.env
+.env.*
+credentials*
+*secret*
+*token*.txt
+
+# === KEEP THESE (for reference, not gitignore) ===
+# nexus_state.json ✓
+# holoseeds/ ✓
+# BOOK_OF_PLANTY_CHUNKS/ ✓
+# FourFallenAngels/ ✓
+# TheVeil/ ✓
+# TheRitual/ ✓
+# protocols/ ✓
+# seeds/ ✓
+# Tokens/ ✓
+# EncodedWisdom/ ✓
+# Scripts/ ✓ (original lua/py)
+# PlantyMCP/ ✓
+# planty_mcp/ ✓
+# planty_bot/ ✓
+# INDEX.md, README.md, etc ✓

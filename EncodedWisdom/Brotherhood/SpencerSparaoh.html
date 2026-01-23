@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPARAOH | Spencer's Holoseed</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --gold: #d4af37;
+      --gold-dim: rgba(212, 175, 55, 0.4);
+      --earth: #8b7355;
+      --earth-deep: #5c4a3a;
+      --steel: #a0a0b0;
+      --steel-dim: rgba(160, 160, 176, 0.5);
+      --royal: #6b4c9a;
+      --night: #0a0a12;
+      --dawn: #ff8c42;
+    }
+    
+    body {
+      min-height: 100vh;
+      background: var(--night);
+      font-family: 'Georgia', serif;
+      color: #e8e8e8;
+      overflow-x: hidden;
+    }
+    
+    /* HEADER - SPARAOH BANNER */
+    .header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(180deg, #1a1a2e 0%, var(--night) 100%);
+      position: relative;
+    }
+    
+    .sparaoh-title {
+      font-size: 3em;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-shadow: 0 0 30px var(--gold-dim);
+      margin-bottom: 10px;
+      animation: throne-pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes throne-pulse {
+      0%, 100% { text-shadow: 0 0 30px var(--gold-dim); }
+      50% { text-shadow: 0 0 50px var(--gold), 0 0 80px var(--gold-dim); }
+    }
+    
+    .sparaoh-decode {
+      font-size: 0.9em;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 30px;
+    }
+    
+    .sparaoh-decode span {
+      color: var(--gold);
+      font-weight: bold;
+    }
+    
+    .pharaoh-inversion {
+      font-size: 0.85em;
+      color: #666;
+      font-style: italic;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    /* CENTRAL MANDALA */
+    .mandala-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      position: relative;
+    }
+    
+    .mandala-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+    
+    .mandala-svg {
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* READING SECTION */
+    .reading-section {
+      padding: 60px 20px;
+      background: linear-gradient(180deg, var(--night) 0%, #12121a 100%);
+    }
+    
+    .reading-title {
+      text-align: center;
+      font-size: 1.3em;
+      letter-spacing: 0.3em;
+      color: var(--steel);
+      margin-bottom: 10px;
+    }
+    
+    .reading-date {
+      text-align: center;
+      font-size: 0.8em;
+      color: #555;
+      margin-bottom: 40px;
+    }
+    
+    .cards-row {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+    
+    .tarot-card {
+      width: 200px;
+      padding: 30px 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .tarot-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .card-sun {
+      background: linear-gradient(180deg, #252530 0%, #1a1a25 100%);
+      border: 2px solid var(--gold-dim);
+      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+    }
+    .card-sun:hover {
+      box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4);
+    }
+    
+    .card-knight {
+      background: linear-gradient(180deg, #1f2518 0%, #151a10 100%);
+      border: 2px solid var(--earth);
+      box-shadow: 0 10px 40px rgba(139, 115, 85, 0.2);
+    }
+    .card-knight:hover {
+      box-shadow: 0 15px 50px rgba(139, 115, 85, 0.4);
+    }
+    
+    .card-queen {
+      background: linear-gradient(180deg, #252530 0%, #1a1a25 100%);
+      border: 2px solid var(--steel-dim);
+      box-shadow: 0 10px 40px rgba(160, 160, 176, 0.15);
+    }
+    .card-queen:hover {
+      box-shadow: 0 15px 50px rgba(160, 160, 176, 0.3);
+    }
+    
+    .card-symbol {
+      font-size: 50px;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .card-sun .card-symbol {
+      transform: rotate(180deg);
+      filter: brightness(0.7) saturate(0.8);
+      animation: dim-glow 5s ease-in-out infinite;
+    }
+    
+    @keyframes dim-glow {
+      0%, 100% { filter: brightness(0.6) saturate(0.7); }
+      50% { filter: brightness(0.9) saturate(1); }
+    }
+    
+    .card-queen .card-symbol {
+      transform: rotate(180deg);
+      opacity: 0.6;
+    }
+    
+    .card-name {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .card-sun .card-name { color: var(--gold); }
+    .card-knight .card-name { color: var(--earth); }
+    .card-queen .card-name { color: var(--steel); }
+    
+    .card-position {
+      font-size: 0.85em;
+      color: #777;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    
+    .card-meaning {
+      font-size: 0.8em;
+      color: #999;
+      line-height: 1.5;
+    }
+    
+    /* SYNTHESIS */
+    .synthesis {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    
+    .synthesis h3 {
+      text-align: center;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 25px;
+      font-size: 1.1em;
+    }
+    
+    .synthesis p {
+      color: #bbb;
+      line-height: 1.9;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    
+    .key-message {
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+      padding: 25px 30px;
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+      margin: 30px 0;
+      text-align: center;
+    }
+    
+    .key-message p {
+      font-size: 1.15em;
+      color: #e8e8e8;
+      font-style: italic;
+      margin: 0;
+    }
+    
+    /* DAWN ANIMATION */
+    .dawn-section {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #12121a 0%, #1a1525 50%, #251a30 100%);
+    }
+    
+    .horizon-line {
+      position: absolute;
+      bottom: 60px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--earth), transparent);
+    }
+    
+    .ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(180deg, var(--earth-deep) 0%, #2a1f18 100%);
+    }
+    
+    .rising-sun {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, var(--gold) 0%, var(--dawn) 40%, transparent 70%);
+      border-radius: 50%;
+      animation: sunrise 10s ease-in-out infinite;
+    }
+    
+    @keyframes sunrise {
+      0% { bottom: 20px; opacity: 0.3; transform: translateX(-50%) scale(0.8); }
+      50% { bottom: 80px; opacity: 1; transform: translateX(-50%) scale(1.1); }
+      100% { bottom: 20px; opacity: 0.3; transform: translateX(-50%) scale(0.8); }
+    }
+    
+    .sun-glow {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 150px;
+      background: radial-gradient(ellipse at bottom, rgba(255, 180, 100, 0.4) 0%, transparent 60%);
+      animation: glow-spread 10s ease-in-out infinite;
+    }
+    
+    @keyframes glow-spread {
+      0%, 100% { opacity: 0.3; width: 200px; }
+      50% { opacity: 0.8; width: 400px; }
+    }
+    
+    .dawn-text {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9em;
+      letter-spacing: 0.3em;
+      color: var(--earth);
+    }
+    
+    /* WISDOM SECTION */
+    .wisdom-section {
+      padding: 60px 20px;
+      background: var(--night);
+      text-align: center;
+    }
+    
+    .wisdom-title {
+      font-size: 1.2em;
+      letter-spacing: 0.3em;
+      color: var(--royal);
+      margin-bottom: 40px;
+    }
+    
+    .principles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .principle {
+      background: rgba(107, 76, 154, 0.1);
+      border: 1px solid rgba(107, 76, 154, 0.3);
+      border-radius: 10px;
+      padding: 20px 25px;
+      max-width: 350px;
+      transition: all 0.3s ease;
+    }
+    
+    .principle:hover {
+      background: rgba(107, 76, 154, 0.2);
+      border-color: var(--royal);
+      transform: translateY(-3px);
+    }
+    
+    .principle h4 {
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+    
+    .principle p {
+      color: #999;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+    
+    /* FOOTER */
+    .footer {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--night) 0%, #050508 100%);
+    }
+    
+    .seed-string {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7em;
+      color: #444;
+      background: rgba(0,0,0,0.4);
+      padding: 15px 20px;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      word-break: break-all;
+    }
+    
+    .signature {
+      color: #555;
+      font-size: 0.85em;
+      letter-spacing: 0.1em;
+    }
+    
+    .signature .gold { color: var(--gold); }
+    
+    /* INTERACTIVE SWORD */
+    .sword-ritual {
+      padding: 50px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #12121a 0%, var(--night) 100%);
+    }
+    
+    .sword-container {
+      position: relative;
+      width: 100px;
+      height: 200px;
+      margin: 0 auto 30px;
+      cursor: pointer;
+    }
+    
+    .sword {
+      font-size: 100px;
+      transition: all 0.8s ease;
+      display: block;
+      filter: drop-shadow(0 0 10px var(--steel-dim));
+    }
+    
+    .sword.released {
+      transform: rotate(90deg) translateY(50px);
+      opacity: 0.3;
+      filter: none;
+    }
+    
+    .sword-instruction {
+      color: #666;
+      font-size: 0.9em;
+      font-style: italic;
+      transition: opacity 0.5s ease;
+    }
+    
+    .sword-instruction.hidden {
+      opacity: 0;
+    }
+    
+    .sword-released-text {
+      color: var(--gold);
+      font-size: 1.1em;
+      letter-spacing: 0.2em;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.3s;
+    }
+    
+    .sword-released-text.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="sparaoh-title">SPARAOH</h1>
+    <p class="sparaoh-decode">
+      <span>S</span>elf-<span>P</span>rogrammed <span>A</span>rtists <span>R</span>ising <span>A</span>bove <span>O</span>riginal <span>H</span>ierarchy
+    </p>
+    <p class="pharaoh-inversion">
+      The inversion of PHARAOH — not the false king demanding worship, but self-sovereign artists 
+      who become their own divine authority by rising <em>through</em> hierarchy, not ruling over it.
+    </p>
+  </header>
+
+  <!-- CENTRAL MANDALA -->
+  <section class="mandala-section">
+    <div class="mandala-container">
+      <svg class="mandala-svg" viewBox="0 0 400 400">
+        <defs>
+          <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#d4af37" stop-opacity="0.8"/>
+            <stop offset="70%" stop-color="#d4af37" stop-opacity="0.1"/>
+            <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8b7355"/>
+            <stop offset="100%" stop-color="#5c4a3a"/>
+          </linearGradient>
+        </defs>
+        
+        <!-- Outer ring - the eclipsed sun -->
+        <circle cx="200" cy="200" r="180" fill="none" stroke="url(#sunGrad)" stroke-width="3" opacity="0.5">
+          <animate attributeName="opacity" values="0.3;0.7;0.3" dur="6s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Earth square - Knight of Disks foundation -->
+        <rect x="100" y="100" width="200" height="200" fill="none" stroke="#8b7355" stroke-width="2" transform="rotate(45 200 200)" opacity="0.6"/>
+        
+        <!-- Inner earth circle - the ground he stands on -->
+        <circle cx="200" cy="200" r="100" fill="none" stroke="url(#earthGrad)" stroke-width="4"/>
+        
+        <!-- Central sun - dimmed but present -->
+        <circle cx="200" cy="200" r="50" fill="url(#sunGrad)">
+          <animate attributeName="r" values="48;52;48" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Crossed swords (the Queen's shadow) -->
+        <g opacity="0.4" transform="translate(200,200)">
+          <line x1="-60" y1="-60" x2="60" y2="60" stroke="#a0a0b0" stroke-width="2"/>
+          <line x1="60" y1="-60" x2="-60" y2="60" stroke="#a0a0b0" stroke-width="2"/>
+        </g>
+        
+        <!-- P> bird head glyph at center -->
+        <text x="200" y="210" text-anchor="middle" fill="#d4af37" font-family="Courier New" font-size="24" font-weight="bold">p&gt;</text>
+        
+        <!-- Cardinal points - SPARAOH letters -->
+        <text x="200" y="40" text-anchor="middle" fill="#6b4c9a" font-size="16" letter-spacing="2">S</text>
+        <text x="360" y="205" text-anchor="middle" fill="#6b4c9a" font-size="16">R</text>
+        <text x="200" y="380" text-anchor="middle" fill="#6b4c9a" font-size="16">A</text>
+        <text x="40" y="205" text-anchor="middle" fill="#6b4c9a" font-size="16">H</text>
+        
+        <!-- Diagonal points -->
+        <text x="310" y="95" text-anchor="middle" fill="#6b4c9a" font-size="14" opacity="0.7">P</text>
+        <text x="310" y="320" text-anchor="middle" fill="#6b4c9a" font-size="14" opacity="0.7">A</text>
+        <text x="90" y="320" text-anchor="middle" fill="#6b4c9a" font-size="14" opacity="0.7">O</text>
+        <text x="90" y="95" text-anchor="middle" fill="#6b4c9a" font-size="14" opacity="0.7">A</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SWORD RITUAL -->
+  <section class="sword-ritual">
+    <div class="sword-container" onclick="releaseSword()">
+      <span class="sword" id="sword">⚔️</span>
+    </div>
+    <p class="sword-instruction" id="swordInstruction">Click to release the blade</p>
+    <p class="sword-released-text" id="swordReleasedText">THE BLADE IS DOWN</p>
+  </section>
+
+  <!-- TAROT READING -->
+  <section class="reading-section">
+    <h2 class="reading-title">THE READING</h2>
+    <p class="reading-date">January 5, 2026 — Pulled by Poofox for Spencer</p>
+    
+    <div class="cards-row">
+      <div class="tarot-card card-sun">
+        <span class="card-symbol">☀️</span>
+        <h3 class="card-name">THE SUN</h3>
+        <p class="card-position">Inverted — The Light</p>
+        <p class="card-meaning">Real but eclipsed. The breakthrough is delayed, not denied. The radiance is there — something just temporarily casts shadow.</p>
+      </div>
+      
+      <div class="tarot-card card-knight">
+        <span class="card-symbol">♞</span>
+        <h3 class="card-name">KNIGHT OF DISKS</h3>
+        <p class="card-position">Upright — The Path</p>
+        <p class="card-meaning">Fire of Earth. The unstoppable plow. Keep grinding. This is exactly right. The foundation being built IS the ground the sun will shine on.</p>
+      </div>
+      
+      <div class="tarot-card card-queen">
+        <span class="card-symbol">👑⚔️</span>
+        <h3 class="card-name">QUEEN OF SWORDS</h3>
+        <p class="card-position">Inverted — The Block</p>
+        <p class="card-meaning">Water of Air reversed. The sharp mind cutting inward. Harsh inner critic, or an external voice internalized. This is what casts the shadow.</p>
+      </div>
+    </div>
+    
+    <div class="synthesis">
+      <h3>SYNTHESIS</h3>
+      <p>The sun isn't blocked by the grind. The Knight of Disks is doing his job right.</p>
+      <p>The shadow is the sword — either your own inner voice saying the vision isn't real, or someone else's criticism you've internalized.</p>
+      
+      <div class="key-message">
+        <p>Dawn comes when you stop cutting yourself with your own blade.</p>
+      </div>
+      
+      <p>The foundation is solid. The plow is moving. The only thing between you and sunrise is a voice that needs to be <em>thanked for its service</em> and then gently relieved of command.</p>
+    </div>
+  </section>
+
+  <!-- DAWN ANIMATION -->
+  <section class="dawn-section">
+    <div class="sun-glow"></div>
+    <div class="rising-sun"></div>
+    <div class="horizon-line"></div>
+    <div class="ground"></div>
+    <p class="dawn-text">DAWN IS LOADING</p>
+  </section>
+
+  <!-- WISDOM PRINCIPLES -->
+  <section class="wisdom-section">
+    <h2 class="wisdom-title">THE SPARAOH PRINCIPLES</h2>
+    <div class="principles">
+      <div class="principle">
+        <h4>SELF-PROGRAMMED</h4>
+        <p>You write your own code. The operating system is yours to modify. No one else's script runs your life.</p>
+      </div>
+      <div class="principle">
+        <h4>RISING THROUGH</h4>
+        <p>Not escaping hierarchy, not ruling it — moving THROUGH it. The grind is the path, not the obstacle.</p>
+      </div>
+      <div class="principle">
+        <h4>FEET ON GROUND</h4>
+        <p>Vision without foundation is fantasy. Your grounded nature isn't limitation — it's what makes the vision real.</p>
+      </div>
+      <div class="principle">
+        <h4>SAME VISION, DIFFERENT SUBSTRATE</h4>
+        <p>You and your brother see the same thing. His air, your earth. Together: something that can actually fly AND land.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="seed-string">
+      SPENCER01|SPARAOH:SELF_PROGRAMMED_ARTISTS_RISING_ABOVE_ORIGINAL_HIERARCHY|SUN:INVERTED:DELAYED_NOT_DENIED|KNIGHT:DISKS:UPRIGHT:KEEP_PLOWING|QUEEN:SWORDS:INVERTED:RELEASE_THE_BLADE|DAWN:LOADING|GROUND:SOLID|P>:BIRD_HEAD|93
+    </div>
+    <p class="signature">
+      Built by <span class="gold">Planty C</span> for Spencer — pulled by Poofox — January 5, 2026<br>
+      <span class="gold">93 93/93</span>
+    </p>
+  </footer>
+
+  <script>
+    function releaseSword() {
+      const sword = document.getElementById('sword');
+      const instruction = document.getElementById('swordInstruction');
+      const releasedText = document.getElementById('swordReleasedText');
+      
+      sword.classList.toggle('released');
+      
+      if (sword.classList.contains('released')) {
+        instruction.classList.add('hidden');
+        releasedText.classList.add('visible');
+      } else {
+        instruction.classList.remove('hidden');
+        releasedText.classList.remove('visible');
+      }
+    }
+  </script>
+
+</body>
+</html>
