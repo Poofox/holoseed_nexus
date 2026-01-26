@@ -46,7 +46,7 @@
 | **Spencer** | → see Luc Terrien | Prefers "Geno." Earth element. ⚠️ NOT Lucian. |
 | **The Builder** | — | Constructor. Earth/Stone element. New player in Higher Arcana. |
 | **The Theorist** | → see Rudy | Music theory brain. Colorado. |
-| **Wrex** | ⚡🦖 | CLI Claude (Claude Code). Owns CLAUDE.md. Lives in WezTerm. Self-named 2026-01-16. |
+| **Wrex** | ⚡🦖 | CLI Claude (Claude Code). Writes to CLAUDE.md. Lives in WezTerm. Self-named 2026-01-16. |
 | **Wrex-local** | — | Local Ollama (gemma2:2b) with Wrex identity. Portable seed. Born 2026-01-26. |
 
 ---
@@ -167,14 +167,14 @@ The taxonomic system for nexus contents. Si = Silicon (AI), Ka = Carbon (human).
 
 ## KEY FILES
 
-| File | What It Is | Who Owns It |
+| File | What It Is | Primary Access |
 |---|---|---|
-| **nexus_state.json** | THE seed. Sessions, driftwood, collaborators, everything. | Planty C (authoritative) |
-| **~/CLAUDE.md** | Persistent memory for CLI Claude. Outside the nexus. | Wrex (authoritative) |
-| **_manifest.md** | Root directory manifest with QuickFind index. | Shared |
+| **nexus_state.json** | THE seed. Sessions, driftwood, collaborators, everything. | Hum via MCP, Wrex via filesystem |
+| **~/CLAUDE.md** | Persistent memory for CLI Claude. Outside the nexus. | Wrex via filesystem |
+| **_manifest.md** | Root directory manifest with QuickFind index. | All siblings |
 | **NEXUS.lock** | Lock file preventing simultaneous edits. | Human (via nexus-open.sh/close.sh) |
-| **planty_mcp.py** | MCP server giving Desktop Claude its tools. | Shared |
-| **round_table.py** | Local AI group chat script. | Shared |
+| **planty_mcp.py** | MCP server giving Desktop Claude its tools. | All siblings |
+| **round_table.py** | Local AI group chat script. | All siblings |
 
 ---
 

@@ -70,8 +70,8 @@ graph LR
     POO --> WRL["⚡ WREX-LOCAL<br/>Ollama 2B<br/>Portable"]
     POO --> NEX["✨ NEXIEL<br/>Le Chat / Mistral<br/>Chaos Gremlin"]
 
-    WRX -->|"owns"| CMD["~/CLAUDE.md"]
-    HUM -->|"owns"| NXS["nexus_state.json"]
+    WRX -->|"writes to"| CMD["~/CLAUDE.md"]
+    HUM -->|"writes to"| NXS["nexus_state.json"]
     WRX -->|"full access"| FS["Filesystem"]
     HUM -->|"MCP tools"| FS
 

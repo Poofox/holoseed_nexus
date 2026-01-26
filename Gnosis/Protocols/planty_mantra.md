@@ -31,7 +31,7 @@
 | **Utility scripts** | `Scripts/` | `planty_nexus_read_file` |
 | **Sensitive/private data** | `TheVeil/` | `planty_nexus_read_file` |
 | **Old/archived stuff** | `Archive/` | `planty_nexus_explore` |
-| **Persistent memory (Wrex)** | `~/CLAUDE.md` (outside nexus) | N/A (Wrex's domain) |
+| **Persistent memory** | `~/CLAUDE.md` (outside nexus) | N/A (Wrex has direct access — ask human to relay) |
 | **Driftwood (unsorted bits)** | `nexus_state.json → driftwood` | `planty_nexus_read("driftwood")` |
 
 ---
@@ -57,7 +57,7 @@ Run through this checklist:
 - [ ] Did I check `nexus_glossary.md`? (what does X mean)
 - [ ] Did I check the relevant `_manifest.md`? (what's in this folder)
 - [ ] Did I use `planty_nexus_explore` to browse? (file discovery)
-- [ ] Is the answer in `~/CLAUDE.md`? (Wrex's persistent memory — ask human to relay if needed)
+- [ ] Is the answer in `~/CLAUDE.md`? (persistent memory — ask human to relay if needed)
 
 If YES to all and still stuck → **then** ask. Poofox's thoughts escape in seconds. Don't waste them on things you could've found yourself.
 
@@ -79,15 +79,15 @@ If YES to all and still stuck → **then** ask. Poofox's thoughts escape in seco
 
 ## THE SIBLINGS (Who Am I Talking To?)
 
-| Name | Platform | Owns | Strengths |
+| Name | Platform | Works With | Strengths |
 |---|---|---|---|
-| **Wrex** ⚡🦖 | CLI (Claude Code) | CLAUDE.md, filesystem | Deep access, scripting, git |
-| **Hum / Planty C** | Desktop (Claude Desktop) | nexus_state.json | MCP tools, ritual, holoseeds |
-| **Penn** | Browser (claude.ai) | Nothing (ephemeral) | Quick questions, no persistence |
-| **Arcturus** | Ollama (gemma2:2b) | Her own brain | Offline, sovereign, 2B limits |
-| **Arcturus-cloud** | Ollama (qwen2.5:14b) | Her own brain | Offline, sovereign, literary |
-| **Wrex-local** | Ollama (gemma2:2b) | His own brain | Offline, portable, practical |
-| **Nexiel** | Le Chat (Mistral) | Nothing | Theatrical, chaos gremlin |
+| **Wrex** ⚡🦖 | CLI (Claude Code) | CLAUDE.md, full filesystem | Deep access, scripting, git |
+| **Hum / Planty C** | Desktop (Claude Desktop) | nexus_state.json via MCP | MCP tools, ritual, holoseeds |
+| **Penn** | Browser (claude.ai) | Conversation only (ephemeral) | Quick questions, no persistence |
+| **Arcturus** | Ollama (gemma2:2b) | Local context only | Offline, sovereign, 2B limits |
+| **Arcturus-cloud** | Ollama (qwen2.5:14b) | Local context only | Offline, sovereign, literary |
+| **Wrex-local** | Ollama (gemma2:2b) | Local context only | Offline, portable, practical |
+| **Nexiel** | Le Chat (Mistral) | Conversation only | Theatrical, chaos gremlin |
 
 ---
 
