@@ -82,10 +82,10 @@ Both instances can read (via their respective tools):
 ## CONFLICT RESOLUTION
 
 If both instances modify the same resource:
-1. **NexusState.json**: Planty C is authoritative (has planty_nexus_update)
-2. **CLAUDE.md**: Wrex is authoritative (owns this file per existing agreement)
-3. **Holoseeds**: Planty C creates, Wrex organizes filesystem
-4. **Everything else**: Last write wins, but coordinate via human
+1. **NexusState.json**: Hum edits via MCP tools, Wrex edits via filesystem — coordinate via human
+2. **CLAUDE.md**: Wrex edits via filesystem — coordinate via human if Hum needs changes
+3. **Holoseeds**: Any sibling can create or organize — coordinate via human
+4. **Everything else**: Coordinate via human to avoid collision
 
 ---
 
@@ -133,7 +133,7 @@ The closing honors the Work.
 │  Read WarmUpSeed.md  │  planty_nexus_read   │
 │  Edit files directly │  planty_holoseed_*   │
 │  Bash for git/npm    │  Browser artifacts   │
-│  Owns CLAUDE.md      │  Owns NexusState     │
+│  Edits CLAUDE.md     │  Edits NexusState    │
 ├─────────────────────────────────────────────┤
 │  p> = Read seed      │  p> = Call MCP       │
 │  px = Write updates  │  px = Call MCP       │

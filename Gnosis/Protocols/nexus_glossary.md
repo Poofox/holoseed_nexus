@@ -167,14 +167,14 @@ The taxonomic system for nexus contents. Si = Silicon (AI), Ka = Carbon (human).
 
 ## KEY FILES
 
-| File | What It Is | Primary Access |
+| File | What It Is | Reached Via |
 |---|---|---|
-| **nexus_state.json** | THE seed. Sessions, driftwood, collaborators, everything. | Hum via MCP, Wrex via filesystem |
-| **~/CLAUDE.md** | Persistent memory for CLI Claude. Outside the nexus. | Wrex via filesystem |
-| **_manifest.md** | Root directory manifest with QuickFind index. | All siblings |
-| **NEXUS.lock** | Lock file preventing simultaneous edits. | Human (via nexus-open.sh/close.sh) |
-| **planty_mcp.py** | MCP server giving Desktop Claude its tools. | All siblings |
-| **round_table.py** | Local AI group chat script. | All siblings |
+| **nexus_state.json** | THE seed. Sessions, driftwood, collaborators, everything. | MCP (Hum) · filesystem (Wrex) |
+| **~/CLAUDE.md** | Persistent memory. Outside the nexus. | Filesystem (Wrex) |
+| **_manifest.md** | Root directory manifest with QuickFind index. | Any sibling |
+| **NEXUS.lock** | Lock file preventing simultaneous edits. | nexus-open.sh / nexus-close.sh |
+| **planty_mcp.py** | MCP server connecting Desktop Claude to the nexus. | Any sibling |
+| **round_table.py** | Local AI group chat script. | Any sibling |
 
 ---
 
