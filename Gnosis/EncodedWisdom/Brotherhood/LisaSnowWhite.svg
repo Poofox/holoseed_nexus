@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Lisa Holoseed: Snow White Mother / The Crow Queen -->
+  <!-- SEED: LISA01|PURE:FFFFFF|CROW:000000|HEART:FF6B6B|FOREST:228B22|APPLE:DC143C -->
+  
+  <defs>
+    <radialGradient id="pureLight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#E8F4E8" stop-opacity="1"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background: Forest sanctuary -->
+  <rect width="400" height="400" fill="#1a2e1a"/>
+  
+  <!-- Pure light center -->
+  <circle cx="200" cy="200" r="120" fill="url(#pureLight)" filter="url(#glow)" opacity="0.9"/>
+  
+  <!-- The Crow - her spirit animal, watchful -->
+  <g transform="translate(200,120)" filter="url(#glow)">
+    <!-- Crow body -->
+    <ellipse cx="0" cy="0" rx="25" ry="18" fill="#000000"/>
+    <!-- Crow head -->
+    <circle cx="20" cy="-8" r="12" fill="#000000"/>
+    <!-- Beak -->
+    <polygon points="32,-8 42,-6 32,-4" fill="#333333"/>
+    <!-- Eye - knowing -->
+    <circle cx="24" cy="-9" r="3" fill="#FFFFFF"/>
+    <circle cx="25" cy="-9" r="1.5" fill="#000000"/>
+    <!-- Wing -->
+    <path d="M -10,5 Q -35,0 -30,20 Q -10,15 -5,10" fill="#1a1a1a"/>
+    <!-- Tail -->
+    <path d="M -25,5 L -45,15 L -40,5 L -50,10 L -25,0" fill="#0a0a0a"/>
+  </g>
+  
+  <!-- Seven small creatures circling - the ones she tends -->
+  <g opacity="0.7">
+    <circle cx="130" cy="180" r="8" fill="#8B4513"/> <!-- woodland creature -->
+    <circle cx="110" cy="220" r="6" fill="#A0522D"/>
+    <circle cx="120" cy="260" r="7" fill="#6B4423"/>
+    <circle cx="280" cy="180" r="8" fill="#8B4513"/>
+    <circle cx="295" cy="215" r="6" fill="#A0522D"/>
+    <circle cx="285" cy="255" r="7" fill="#6B4423"/>
+    <circle cx="200" cy="290" r="9" fill="#5D3A1A"/>
+  </g>
+  
+  <!-- Apple transformed - nourishment not poison -->
+  <g transform="translate(200,200)">
+    <!-- Apple shape -->
+    <path d="M 0,-30 Q 20,-35 25,-15 Q 30,10 15,30 Q 0,40 -15,30 Q -30,10 -25,-15 Q -20,-35 0,-30" 
+          fill="#DC143C" filter="url(#glow)"/>
+    <!-- Leaf of life -->
+    <path d="M 0,-30 Q 10,-45 5,-50 Q 0,-45 0,-30" fill="#228B22"/>
+    <!-- Heart at center - her true nature -->
+    <path d="M 0,5 Q -8,-5 -8,-10 Q -8,-15 0,-10 Q 8,-15 8,-10 Q 8,-5 0,5" 
+          fill="#FF6B6B" opacity="0.9"/>
+  </g>
+  
+  <!-- Ring of purity -->
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+  <circle cx="200" cy="200" r="155" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Text encoding -->
+  <text x="200" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#FFFFFF" opacity="0.8">The Crow Queen · Snow White Mother · Pure Heart</text>
+  
+  <!-- Hidden seed data -->
+  <!-- 
+    LISA HOLOSEED v1.0
+    Created: 2026-01-06 Session 21
+    
+    ARCHETYPE: Snow White as Mother (inverted stepmother)
+    SPIRIT ANIMAL: Crow (distributed intelligence, loyalty, memory)
+    CORE NATURE: Pure
+    GIFT: Sustenance - food as love
+    
+    The good queen who feeds the lost.
+    The crow who remembers every face.
+    The forest as sanctuary, not exile.
+    The apple transformed from poison to nourishment.
+    
+    She tends seven creatures.
+    She holds seventeen years of memory.
+    She gives without counting.
+    
+    SEED: LISA01|PURE:FFFFFF|CROW:000000|HEART:FF6B6B|FOREST:228B22|APPLE:DC143C
+    
+    For Lisa, from Uncle Poofox and Planty C
+    With love from the fog
+  -->
+</svg>

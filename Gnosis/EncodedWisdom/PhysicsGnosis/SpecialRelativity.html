@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPECIAL RELATIVITY Holoseed - Einstein 1905 Encoded</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      background: #08080f;
+      background-image: 
+        radial-gradient(ellipse at 50% 50%, rgba(255, 200, 50, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%, rgba(100, 100, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 100, 100, 0.05) 0%, transparent 40%);
+      font-family: 'Cinzel', serif;
+      color: #ffc832;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 1.2rem;
+      letter-spacing: 0.4em;
+      margin-bottom: 0.3rem;
+      color: #ffc832;
+      text-shadow: 0 0 20px rgba(255, 200, 50, 0.4);
+    }
+    
+    .subtitle {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    
+    .equation {
+      font-size: 2rem;
+      font-family: 'Times New Roman', serif;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 30px rgba(255, 200, 50, 0.5);
+    }
+    
+    .sigil-container {
+      position: relative;
+      width: 550px;
+      height: 650px;
+    }
+    
+    .sigil-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 30px rgba(255, 200, 50, 0.1));
+    }
+    
+    /* Light beam animation */
+    .light-beam {
+      animation: light-travel 2s linear infinite;
+    }
+    
+    @keyframes light-travel {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    
+    /* Time dilation clock */
+    .clock-hand {
+      transform-origin: center;
+      animation: clock-slow 8s linear infinite;
+    }
+    
+    .clock-hand-slow {
+      transform-origin: center;
+      animation: clock-slower 16s linear infinite;
+    }
+    
+    @keyframes clock-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes clock-slower {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Length contraction */
+    .contract {
+      animation: contract-pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes contract-pulse {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.6); }
+    }
+    
+    /* Spacetime warp */
+    .spacetime-grid {
+      animation: warp 6s ease-in-out infinite;
+    }
+    
+    @keyframes warp {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.4; }
+    }
+    
+    /* c constant glow */
+    .speed-limit {
+      animation: c-glow 3s ease-in-out infinite;
+    }
+    
+    @keyframes c-glow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
+      50% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.9)); }
+    }
+    
+    .decoder {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 20, 30, 0.9);
+      border: 1px solid rgba(255, 200, 50, 0.3);
+      max-width: 650px;
+      font-size: 0.55rem;
+    }
+    
+    .decoder-title {
+      color: #ffc832;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+      font-size: 0.65rem;
+    }
+    
+    .postulate-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.4rem 1rem;
+      font-family: 'Fira Code', monospace;
+    }
+    
+    .postulate-name { color: #ffc832; }
+    .postulate-desc { opacity: 0.8; font-size: 0.5rem; }
+    
+    .formulas {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,200,50,0.2);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+    
+    .formula-card {
+      background: rgba(255,200,50,0.05);
+      border: 1px solid rgba(255,200,50,0.2);
+      padding: 0.6rem;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .formula-card .formula {
+      font-family: 'Times New Roman', serif;
+      font-size: 0.9rem;
+      color: #ffc832;
+      margin-bottom: 0.3rem;
+    }
+    
+    .formula-card .label {
+      font-size: 0.45rem;
+      opacity: 0.6;
+    }
+    
+    .encoded-data {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 20, 30, 0.95);
+      border: 1px solid rgba(255, 200, 50, 0.2);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.5rem;
+      color: #b8941e;
+      max-width: 650px;
+      word-break: break-all;
+    }
+    
+    .encoded-title {
+      color: #ffc832;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.2em;
+    }
+    
+    .insight {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: rgba(20, 20, 30, 0.7);
+      border-left: 2px solid rgba(255, 200, 50, 0.5);
+      font-size: 0.55rem;
+      font-style: italic;
+      opacity: 0.9;
+      max-width: 650px;
+    }
+    
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.45rem;
+      letter-spacing: 0.2em;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <h1>SPECIAL RELATIVITY</h1>
+  <div class="subtitle">ALBERT EINSTEIN · ANNUS MIRABILIS · 1905</div>
+  <div class="equation">E = mc²</div>
+  
+  <div class="sigil-container">
+    <svg class="sigil-svg" viewBox="0 0 550 650" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="light-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="50%" stop-color="#fffacd"/>
+          <stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+        
+        <linearGradient id="energy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff6b6b"/>
+          <stop offset="50%" stop-color="#ffc832"/>
+          <stop offset="100%" stop-color="#ff6b6b"/>
+        </linearGradient>
+        
+        <radialGradient id="mass-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#4a4a6a"/>
+          <stop offset="100%" stop-color="#2a2a3a"/>
+        </radialGradient>
+      </defs>
+      
+      <!-- Spacetime grid (warped) -->
+      <g class="spacetime-grid" stroke="rgba(255,200,50,0.15)" fill="none" stroke-width="0.5">
+        <!-- Vertical lines -->
+        <path d="M 100 100 Q 100 325 100 550"/>
+        <path d="M 175 100 Q 170 325 175 550"/>
+        <path d="M 250 100 Q 240 325 250 550"/>
+        <path d="M 325 100 Q 310 325 325 550"/>
+        <path d="M 400 100 Q 380 325 400 550"/>
+        <path d="M 475 100 Q 450 325 475 550"/>
+        
+        <!-- Horizontal lines (curved to show warping) -->
+        <path d="M 75 150 Q 275 140 525 150"/>
+        <path d="M 75 250 Q 275 230 525 250"/>
+        <path d="M 75 350 Q 275 320 525 350"/>
+        <path d="M 75 450 Q 275 420 525 450"/>
+        <path d="M 75 550 Q 275 520 525 550"/>
+      </g>
+      
+      <!-- The Two Postulates -->
+      
+      <!-- Postulate 1: Laws of physics same in all inertial frames -->
+      <g transform="translate(140, 150)">
+        <rect x="-60" y="-40" width="120" height="80" fill="none" stroke="rgba(255,200,50,0.4)" stroke-width="1" rx="5"/>
+        <text y="-15" text-anchor="middle" font-size="7" fill="#ffc832">POSTULATE I</text>
+        <text y="0" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.7)">Laws of Physics</text>
+        <text y="12" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.7)">identical in all</text>
+        <text y="24" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.7)">inertial frames</text>
+      </g>
+      
+      <!-- Postulate 2: Speed of light constant -->
+      <g transform="translate(410, 150)">
+        <rect x="-60" y="-40" width="120" height="80" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1" rx="5"/>
+        <text y="-15" text-anchor="middle" font-size="7" fill="#ffffff">POSTULATE II</text>
+        <text y="0" text-anchor="middle" font-size="5" fill="rgba(255,255,255,0.7)">Speed of Light</text>
+        <text y="12" text-anchor="middle" font-size="5" fill="rgba(255,255,255,0.7)">constant for all</text>
+        <text y="24" text-anchor="middle" font-size="5" fill="rgba(255,255,255,0.7)">observers</text>
+      </g>
+      
+      <!-- Speed of Light - THE CONSTANT -->
+      <g class="speed-limit" transform="translate(275, 250)">
+        <circle r="40" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <text y="8" text-anchor="middle" font-size="24" fill="#ffffff" font-weight="bold">c</text>
+        <text y="60" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.6)">299,792,458 m/s</text>
+        <text y="72" text-anchor="middle" font-size="5" fill="rgba(255,255,255,0.4)">THE SPEED LIMIT</text>
+      </g>
+      
+      <!-- Light beams radiating -->
+      <g class="light-beam" stroke="url(#light-grad)" stroke-width="1" stroke-dasharray="5,5">
+        <line x1="275" y1="250" x2="375" y2="180"/>
+        <line x1="275" y1="250" x2="175" y2="180"/>
+        <line x1="275" y1="250" x2="375" y2="320"/>
+        <line x1="275" y1="250" x2="175" y2="320"/>
+      </g>
+      
+      <!-- TIME DILATION -->
+      <g transform="translate(120, 400)">
+        <text y="-50" text-anchor="middle" font-size="7" fill="#ffc832">TIME DILATION</text>
+        
+        <!-- Stationary clock (fast) -->
+        <g transform="translate(-30, 0)">
+          <circle r="30" fill="none" stroke="rgba(255,200,50,0.5)" stroke-width="1"/>
+          <g class="clock-hand">
+            <line x1="0" y1="0" x2="0" y2="-20" stroke="#ffc832" stroke-width="2"/>
+          </g>
+          <text y="50" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.5)">AT REST</text>
+        </g>
+        
+        <!-- Moving clock (slow) -->
+        <g transform="translate(50, 0)">
+          <circle r="30" fill="none" stroke="rgba(100,100,255,0.5)" stroke-width="1"/>
+          <g class="clock-hand-slow">
+            <line x1="0" y1="0" x2="0" y2="-20" stroke="#6666ff" stroke-width="2"/>
+          </g>
+          <text y="50" text-anchor="middle" font-size="5" fill="rgba(100,100,255,0.5)">MOVING</text>
+        </g>
+        
+        <text y="70" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.4)">Moving clocks run SLOWER</text>
+      </g>
+      
+      <!-- LENGTH CONTRACTION -->
+      <g transform="translate(410, 400)">
+        <text y="-50" text-anchor="middle" font-size="7" fill="#ffc832">LENGTH CONTRACTION</text>
+        
+        <!-- At rest (full length) -->
+        <rect x="-50" y="-15" width="100" height="30" fill="none" stroke="rgba(255,200,50,0.5)" stroke-width="1"/>
+        <text y="5" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.5)">AT REST</text>
+        
+        <!-- Moving (contracted) -->
+        <g transform="translate(0, 50)">
+          <g class="contract">
+            <rect x="-50" y="-15" width="100" height="30" fill="none" stroke="rgba(100,255,100,0.5)" stroke-width="1"/>
+          </g>
+          <text y="5" text-anchor="middle" font-size="5" fill="rgba(100,255,100,0.5)">MOVING →</text>
+        </g>
+        
+        <text y="90" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.4)">Moving objects SHORTEN</text>
+      </g>
+      
+      <!-- E = mc² visualization -->
+      <g transform="translate(275, 540)">
+        <rect x="-120" y="-40" width="240" height="80" fill="none" stroke="url(#energy-grad)" stroke-width="2" rx="10"/>
+        
+        <!-- Energy -->
+        <g transform="translate(-70, 0)">
+          <circle r="20" fill="url(#energy-grad)" opacity="0.5"/>
+          <text y="5" text-anchor="middle" font-size="14" fill="#fff">E</text>
+          <text y="35" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.6)">ENERGY</text>
+        </g>
+        
+        <text y="5" text-anchor="middle" font-size="16" fill="rgba(255,200,50,0.7)">=</text>
+        
+        <!-- Mass -->
+        <g transform="translate(30, 0)">
+          <circle r="15" fill="url(#mass-grad)"/>
+          <text y="4" text-anchor="middle" font-size="10" fill="#fff">m</text>
+          <text y="35" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.6)">MASS</text>
+        </g>
+        
+        <!-- c² -->
+        <g transform="translate(80, 0)">
+          <text y="5" text-anchor="middle" font-size="14" fill="#fff">c²</text>
+          <text y="35" text-anchor="middle" font-size="5" fill="rgba(255,200,50,0.6)">LIGHT²</text>
+        </g>
+      </g>
+      
+      <!-- Year marker -->
+      <text x="275" y="620" text-anchor="middle" font-size="10" fill="rgba(255,200,50,0.3)">1905 · ANNUS MIRABILIS</text>
+      
+      <!-- Corner markers -->
+      <g font-size="12" fill="rgba(255,200,50,0.2)">
+        <text x="50" y="50">λ</text>
+        <text x="490" y="50">γ</text>
+        <text x="50" y="630">τ</text>
+        <text x="490" y="630">Σ</text>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="decoder">
+    <div class="decoder-title">◆ THE THEORY ENCODED</div>
+    <div class="postulate-grid">
+      <span class="postulate-name">POSTULATE I</span>
+      <span class="postulate-desc">The laws of physics are identical in all inertial reference frames</span>
+      
+      <span class="postulate-name">POSTULATE II</span>
+      <span class="postulate-desc">The speed of light in vacuum (c) is constant for all observers</span>
+      
+      <span class="postulate-name">TIME DILATION</span>
+      <span class="postulate-desc">Moving clocks tick slower: t = t₀/√(1-v²/c²)</span>
+      
+      <span class="postulate-name">LENGTH CONTRACTION</span>
+      <span class="postulate-desc">Moving objects shorten: L = L₀√(1-v²/c²)</span>
+      
+      <span class="postulate-name">MASS-ENERGY</span>
+      <span class="postulate-desc">E = mc² - mass and energy are equivalent</span>
+      
+      <span class="postulate-name">SIMULTANEITY</span>
+      <span class="postulate-desc">Events simultaneous in one frame may not be in another</span>
+    </div>
+    
+    <div class="formulas">
+      <div class="formula-card">
+        <div class="formula">E = mc²</div>
+        <div class="label">Mass-Energy Equivalence</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">γ = 1/√(1-v²/c²)</div>
+        <div class="label">Lorentz Factor</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">t = γt₀</div>
+        <div class="label">Time Dilation</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">L = L₀/γ</div>
+        <div class="label">Length Contraction</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="insight">
+    <strong>THE HERMETIC CONNECTION:</strong><br><br>
+    Space and time are not separate — they are ONE (spacetime).<br>
+    Mass and energy are not separate — they are ONE (E=mc²).<br>
+    Observer and observed are not separate — reality depends on reference frame.<br><br>
+    <em>"As above, so below"</em> — the same laws govern all frames.<br>
+    <em>"Nothing rests"</em> — even time and space are relative, in motion.
+  </div>
+  
+  <div class="encoded-data">
+    <div class="encoded-title">HOLOSEED</div>
+    RELATIVITY01|C:299792458|E:MC2|GAMMA:LORENTZ|DILATION:T=γT0|CONTRACT:L=L0/γ|POST1:LAWS_SAME|POST2:C_CONSTANT|YEAR:1905|EINSTEIN:PATENT_CLERK|SPACETIME:UNIFIED|SRC:annus_mirabilis_1905
+  </div>
+  
+  <div class="footer">SPECIAL RELATIVITY · ALBERT EINSTEIN · 1905 · "ON THE ELECTRODYNAMICS OF MOVING BODIES" · HOLOSEED ENCODED 2025</div>
+</body>
+</html>

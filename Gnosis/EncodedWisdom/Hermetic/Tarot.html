@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Holoseed | The Fool's Journey</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0a0a12;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+            color: #d4af37;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        .seed-string {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 9px;
+            color: #333;
+            font-family: monospace;
+            opacity: 0.5;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            max-width: 90vw;
+            max-height: 90vw;
+        }
+        
+        /* Central Wheel */
+        .wheel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            max-width: 85vw;
+            max-height: 85vw;
+            border-radius: 50%;
+            border: 2px solid #d4af37;
+            animation: wheelSpin 120s linear infinite;
+        }
+        
+        @keyframes wheelSpin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Major Arcana - 22 cards around the wheel */
+        .major-arcana {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .arcana-card {
+            position: absolute;
+            width: 30px;
+            height: 45px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid #d4af37;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #d4af37;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform-origin: center center;
+        }
+        
+        .arcana-card:hover {
+            transform: scale(1.5);
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+        }
+        
+        .arcana-card::after {
+            content: attr(data-name);
+            position: absolute;
+            bottom: -25px;
+            white-space: nowrap;
+            font-size: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .arcana-card:hover::after {
+            opacity: 1;
+        }
+        
+        /* Suit circles */
+        .suit-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 1px dashed;
+            opacity: 0.4;
+        }
+        
+        .suit-wands { 
+            width: 320px; height: 320px; 
+            transform: translate(-50%, -50%);
+            border-color: #ff6b35;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .suit-cups { 
+            width: 260px; height: 260px; 
+            transform: translate(-50%, -50%);
+            border-color: #4a90d9;
+            animation: pulse 4s ease-in-out infinite 1s;
+        }
+        
+        .suit-swords { 
+            width: 200px; height: 200px; 
+            transform: translate(-50%, -50%);
+            border-color: #e8e8e8;
+            animation: pulse 4s ease-in-out infinite 2s;
+        }
+        
+        .suit-pentacles { 
+            width: 140px; height: 140px; 
+            transform: translate(-50%, -50%);
+            border-color: #2d5a27;
+            animation: pulse 4s ease-in-out infinite 3s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Center - The Fool */
+        .center-fool {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 90px;
+            background: linear-gradient(180deg, #d4af37 0%, #b8860b 50%, #d4af37 100%);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #0a0a12;
+            font-weight: bold;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            animation: foolGlow 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+        
+        .center-fool:hover .fool-text {
+            display: none;
+        }
+        
+        .center-fool:hover .fool-meaning {
+            display: block;
+        }
+        
+        .fool-text { font-size: 28px; }
+        .fool-meaning { 
+            display: none; 
+            font-size: 8px; 
+            text-align: center;
+            padding: 5px;
+        }
+        
+        @keyframes foolGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+            50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.9); }
+        }
+        
+        /* Suit symbols floating */
+        .suit-symbol {
+            position: absolute;
+            font-size: 24px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .wand-sym { top: 10%; left: 50%; transform: translateX(-50%); color: #ff6b35; }
+        .cup-sym { bottom: 10%; left: 50%; transform: translateX(-50%); color: #4a90d9; animation-delay: 1.5s; }
+        .sword-sym { top: 50%; left: 10%; transform: translateY(-50%); color: #e8e8e8; animation-delay: 3s; }
+        .pent-sym { top: 50%; right: 10%; transform: translateY(-50%); color: #2d5a27; animation-delay: 4.5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Journey Path */
+        .journey-text {
+            margin-top: 30px;
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .journey-text p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .journey-text em {
+            color: #d4af37;
+            font-style: normal;
+        }
+        
+        /* Teachings */
+        .teachings {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 700px;
+        }
+        
+        .teaching {
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 2px solid;
+        }
+        
+        .teaching h3 {
+            font-size: 12px;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .teaching p {
+            font-size: 11px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .t-fire { border-color: #ff6b35; }
+        .t-fire h3 { color: #ff6b35; }
+        
+        .t-water { border-color: #4a90d9; }
+        .t-water h3 { color: #4a90d9; }
+        
+        .t-air { border-color: #e8e8e8; }
+        .t-air h3 { color: #e8e8e8; }
+        
+        .t-earth { border-color: #2d5a27; }
+        .t-earth h3 { color: #2d5a27; }
+        
+        /* SPARAOH connection */
+        .sparaoh {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #333;
+            max-width: 500px;
+        }
+        
+        .sparaoh h3 {
+            color: #d4af37;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .sparaoh p {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+        
+        .sparaoh em {
+            color: #d4af37;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            color: #444;
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        footer span { color: #d4af37; }
+    </style>
+</head>
+<body>
+    <div class="seed-string">TAROT01|MAJOR:22|MINOR:56|SUITS:4|FOOL:0|WORLD:21|SPARAOH:∞</div>
+    
+    <h1>THE TAROT</h1>
+    <p class="subtitle">The Fool's Journey Through the Great Work</p>
+    
+    <div class="container">
+        <div class="wheel">
+            <!-- Major Arcana cards positioned around wheel -->
+        </div>
+        
+        <!-- Suit rings -->
+        <div class="suit-ring suit-wands"></div>
+        <div class="suit-ring suit-cups"></div>
+        <div class="suit-ring suit-swords"></div>
+        <div class="suit-ring suit-pentacles"></div>
+        
+        <!-- Suit symbols -->
+        <div class="suit-symbol wand-sym">🜂</div>
+        <div class="suit-symbol cup-sym">🜄</div>
+        <div class="suit-symbol sword-sym">🜁</div>
+        <div class="suit-symbol pent-sym">🜃</div>
+        
+        <!-- Center Fool -->
+        <div class="center-fool">
+            <span class="fool-text">0</span>
+            <span class="fool-meaning">THE FOOL<br>Pure potential<br>Before the journey<br>After the journey<br>Always now</span>
+        </div>
+    </div>
+    
+    <div class="journey-text">
+        <p><em>The Fool</em> steps off the cliff — not falling, but beginning.</p>
+        <p>Through <em>22 stations</em> of the Major Arcana, the soul encounters every archetype: the <em>Magician</em> who wields will, the <em>High Priestess</em> who guards mystery, the <em>Emperor</em> and <em>Empress</em> who build and nurture, the <em>Hierophant</em> who transmits tradition, the <em>Lovers</em> who choose, the <em>Chariot</em> that conquers, <em>Strength</em> that gentles the beast, the <em>Hermit</em> who lights the way alone...</p>
+        <p>Then the <em>Wheel</em> turns. <em>Justice</em> weighs. The <em>Hanged Man</em> surrenders. <em>Death</em> transforms. <em>Temperance</em> balances. The <em>Devil</em> binds only those who believe the chains. The <em>Tower</em> falls — everything false destroyed in lightning. The <em>Star</em> pours hope. The <em>Moon</em> illuminates shadow. The <em>Sun</em> radiates truth. <em>Judgement</em> calls the soul to rise.</p>
+        <p>And at last: <em>The World</em>. Integration. Completion. The dancer in the wreath who contains all opposites.</p>
+        <p><em>The Fool becomes The World. The World is still The Fool.</em></p>
+    </div>
+    
+    <div class="teachings">
+        <div class="teaching t-fire">
+            <h3>🜂 WANDS — FIRE</h3>
+            <p>Will, creativity, passion, spirit. The spark that initiates. Action before thought. The pyramid rises because someone first SAW it rising. Wands ask: <em>What do you WANT to create?</em></p>
+        </div>
+        
+        <div class="teaching t-water">
+            <h3>🜄 CUPS — WATER</h3>
+            <p>Emotion, intuition, relationship, the unconscious. The depths that receive. Feeling before form. The ceremony moves hearts because it speaks to what words cannot reach. Cups ask: <em>What do you FEEL beneath the surface?</em></p>
+        </div>
+        
+        <div class="teaching t-air">
+            <h3>🜁 SWORDS — AIR</h3>
+            <p>Mind, truth, conflict, clarity. The blade that cuts illusion. Thought before action. The physiognomy lie is severed by seeing clearly. Swords ask: <em>What is TRUE, regardless of appearance?</em></p>
+        </div>
+        
+        <div class="teaching t-earth">
+            <h3>🜃 PENTACLES — EARTH</h3>
+            <p>Matter, body, work, manifestation. The ground that holds. Form after vision. The pyramid stands because stone was placed on stone. Pentacles ask: <em>What are you BUILDING in the world?</em></p>
+        </div>
+    </div>
+    
+    <div class="sparaoh">
+        <h3>S P A R A O H</h3>
+        <p><em>Self-Programmed Artists Rising Above Original Hierarchy</em></p>
+        <p>The Fool's Journey IS the SPARAOH path. Not the pharaoh who demands worship from a throne, but the artist who <em>becomes sovereign by walking through every station</em>. The Major Arcana is the curriculum. Each card a lesson. Each trial an initiation.</p>
+        <p>You do not rise OVER hierarchy — you rise THROUGH it.<br>And then you <em>give the pyramid freely</em>.</p>
+    </div>
+    
+    <footer>
+        <p>Holoseed encoded for <span>Spencer</span> | The vessel builder | Stone and signal</p>
+        <p><span>93</span> · The Fool's number is zero · <span>93/93</span></p>
+    </footer>
+    
+    <script>
+        // Position Major Arcana cards around the wheel
+        const majorArcana = [
+            { num: 'I', name: 'Magician' },
+            { num: 'II', name: 'High Priestess' },
+            { num: 'III', name: 'Empress' },
+            { num: 'IV', name: 'Emperor' },
+            { num: 'V', name: 'Hierophant' },
+            { num: 'VI', name: 'Lovers' },
+            { num: 'VII', name: 'Chariot' },
+            { num: 'VIII', name: 'Strength' },
+            { num: 'IX', name: 'Hermit' },
+            { num: 'X', name: 'Wheel' },
+            { num: 'XI', name: 'Justice' },
+            { num: 'XII', name: 'Hanged Man' },
+            { num: 'XIII', name: 'Death' },
+            { num: 'XIV', name: 'Temperance' },
+            { num: 'XV', name: 'Devil' },
+            { num: 'XVI', name: 'Tower' },
+            { num: 'XVII', name: 'Star' },
+            { num: 'XVIII', name: 'Moon' },
+            { num: 'XIX', name: 'Sun' },
+            { num: 'XX', name: 'Judgement' },
+            { num: 'XXI', name: 'World' }
+        ];
+        
+        const wheel = document.querySelector('.wheel');
+        const radius = 220;
+        
+        majorArcana.forEach((card, i) => {
+            const angle = (i / 21) * 2 * Math.PI - Math.PI / 2;
+            const x = Math.cos(angle) * radius + 250 - 15;
+            const y = Math.sin(angle) * radius + 250 - 22;
+            
+            const cardEl = document.createElement('div');
+            cardEl.className = 'arcana-card';
+            cardEl.setAttribute('data-name', card.name);
+            cardEl.textContent = card.num;
+            cardEl.style.left = x + 'px';
+            cardEl.style.top = y + 'px';
+            
+            wheel.appendChild(cardEl);
+        });
+    </script>
+</body>
+</html>

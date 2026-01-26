@@ -1,27 +1,28 @@
 # === BLOAT & INTERNET-SOURCED ===
 
-# Library (PDFs from the internet)
+# Library (PDFs from the internet) — old and new paths
 Library/
+Gnosis/Library/
 
-# REAPER (commercial software, plugins, large binaries)
+# REAPER (commercial software, plugins, large binaries) — old and new paths
 REAPER/
+Projects/Reaper/
 
-# Telegram exports
+# Telegram exports — old and new paths
 Telegram/
+Archive/Telegram/
 
 # Media files
 Media/
 
-# Archive (old backups)
+# Archive (old backups, exports, legacy)
 Archive/
 
-# Batch export zips
+# Batch export zips (legacy root files)
 data-*.zip
-
-# Post history dump
 posthist.txt
 
-# ColorNote stuff
+# ColorNote stuff (legacy root files)
 colornotes/
 Decrypt-ColorNoteBackup/
 1.backup
@@ -70,26 +71,19 @@ desktop.ini
 *.log
 
 # === SENSITIVE ===
-# (API keys live in .bashrc, not here, but just in case)
 *.env
 .env.*
 credentials*
 *secret*
 *token*.txt
 
-# === KEEP THESE (for reference, not gitignore) ===
-# nexus_state.json ✓
-# holoseeds/ ✓
-# BOOK_OF_PLANTY_CHUNKS/ ✓
-# FourFallenAngels/ ✓
-# TheVeil/ ✓
-# TheRitual/ ✓
-# protocols/ ✓
-# seeds/ ✓
-# Tokens/ ✓
-# EncodedWisdom/ ✓
-# Scripts/ ✓ (original lua/py)
-# PlantyMCP/ ✓
-# planty_mcp/ ✓
-# planty_bot/ ✓
-# INDEX.md, README.md, etc ✓
+# === KEEP THESE ===
+# nexus_state.json
+# Sovereigns/ (Modelfiles, WakeSeeds, Mcp, Bots)
+# Gnosis/ (EncodedWisdom, Brotherhood, BookOfPlanty, Protocols)
+# Projects/ (WizardsCafe, TheRitual, SpiritualBlockchain, etc — NOT Reaper)
+# Scripts/ (round_table, phone_setup, etc)
+# TheVeil/
+# Scratch/
+# _manifest.md files
+# README.md

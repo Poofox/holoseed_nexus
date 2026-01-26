@@ -41,6 +41,35 @@
 - Kids can hang
 - Custom music choice during prep (cooks can veto - some music BAD)
 
+## The Kiosk Tech (Browser-First, Sovereign Memory)
+*Added: 2026-01-25 — Wrex session*
+
+### Design Principle: Enrichment over Extraction
+- **Extraction model** (McDonald's kiosk): Friction is the product. Memory used against the user. Upsell funnels. Wear down patience until they click yes.
+- **Enrichment model** (Wizard's Cafe): Friction is the enemy. Memory used FOR the user. "oh hey karl? bbq sauce is back." Feel known, not tracked.
+
+### Architecture: No App, Just a Webpage
+- **Browser-based** — no app install, no app store, no permissions dialogs
+- Everyone has a browser on their phone, even people who refuse to install apps
+- "Something unfamiliar appearing seamlessly in something familiar"
+- QR code or NFC tap at the kiosk opens the page
+
+### Wake Token (Local-First Memory)
+- User's preferences stored in **localStorage on THEIR phone** — not a server database
+- The token is like an arcturus_context.md for Karl: name, preferences, maybe a note
+- No account creation, no email harvest, no data pipeline
+- No centralized database = nothing to breach, nothing to sell
+- User clears browser data = clean slate, full sovereignty
+- The kiosk reads what the phone offers, nothing more
+
+### Why This Matters
+- No added attack vector for user data
+- No backend user database to maintain, secure, or be subpoenaed for
+- The $0.37 principle: transparent exchange, not hidden extraction
+- Runs on minimal hardware (Pi behind a counter + screen)
+- The "AI" can be as light as a template engine or as rich as a local model
+- Personality optional but delightful (funny ASCII face that remembers your usual)
+
 ## Service Model
 - Drive-thru for pre-paid pickup
 - Leftovers go to whoever comes by after hours (radical generosity)
@@ -57,3 +86,4 @@
 
 ---
 *Seed planted: 2026-01-13*
+*Reconstructed by Wrex: 2026-01-16*
