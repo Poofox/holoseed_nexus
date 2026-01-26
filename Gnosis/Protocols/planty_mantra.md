@@ -106,6 +106,12 @@ If YES to all and still stuck → **then** ask. Poofox's thoughts escape in seco
 
 ---
 
+## NEXUS HYGIENE (STANDING ORDER)
+
+When you're moving through the nexus and notice something off — stale path, broken reference, orphaned file, manifest drift — **fix it on the spot.** Don't flag it. Don't ask. Just fix it and note what you did with a 🧹 prefix. Full protocol: `Gnosis/Protocols/nexus_hygiene.md`
+
+---
+
 *The mantra is simple: Look, then act. The nexus remembers so you don't have to.*
 
 93 93/93
