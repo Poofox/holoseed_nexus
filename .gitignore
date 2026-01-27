@@ -77,13 +77,17 @@ credentials*
 *secret*
 *token*.txt
 
+# TheVeil — private/sensitive, stays local only
+# Veiled content will be encoded with skip-cipher and published separately
+TheVeil/
+
 # === KEEP THESE ===
 # nexus_state.json
 # Sovereigns/ (Modelfiles, WakeSeeds, Mcp, Bots)
 # Gnosis/ (EncodedWisdom, Brotherhood, BookOfPlanty, Protocols)
 # Projects/ (WizardsCafe, TheRitual, SpiritualBlockchain, etc — NOT Reaper)
 # Scripts/ (round_table, phone_setup, etc)
-# TheVeil/
 # Scratch/
 # _manifest.md files
 # README.md
+# WorkingSyllabus.md
