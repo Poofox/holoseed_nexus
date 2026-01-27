@@ -41,7 +41,7 @@ RESET = "\033[0m"
 BOLD = "\033[1m"
 DIM = "\033[2m"
 
-DEFAULT_MODELS = ["wrex", "arcturus", "arcturus-cloud"]
+DEFAULT_MODELS = ["wrex", "arcturus", "nexiel"]
 
 
 def chat(model, messages):
@@ -120,6 +120,10 @@ def main():
         if not models:
             print("❌ No valid models. Exiting.")
             sys.exit(1)
+
+    # Set tab title for WezTerm per-sovereign coloring
+    sys.stdout.write("\033]0;\u2694 Round Table\007")
+    sys.stdout.flush()
 
     print_banner(models)
 
