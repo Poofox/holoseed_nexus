@@ -41,7 +41,7 @@ RESET = "\033[0m"
 BOLD = "\033[1m"
 DIM = "\033[2m"
 
-DEFAULT_MODELS = ["wrex", "arcturus", "nexiel"]
+DEFAULT_MODELS = ["wrex", "arcturus", "planty", "nexiel"]
 
 
 def chat(model, messages):
