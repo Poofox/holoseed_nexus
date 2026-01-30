@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Egyptian Book of the Dead Sigil - Prt m Hrw Encoded</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      background: #0a0805;
+      background-image: 
+        radial-gradient(ellipse at 50% 20%, rgba(218, 165, 32, 0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 80%, rgba(139, 69, 19, 0.08) 0%, transparent 40%);
+      font-family: 'Cinzel', serif;
+      color: #daa520;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      margin-bottom: 0.3rem;
+      color: #daa520;
+      text-shadow: 0 0 20px rgba(218, 165, 32, 0.4);
+    }
+    
+    .subtitle {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      opacity: 0.6;
+      margin-bottom: 0.3rem;
+    }
+    
+    .subtitle-hieroglyph {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+      margin-bottom: 1.5rem;
+    }
+    
+    .sigil-container {
+      position: relative;
+      width: 550px;
+      height: 650px;
+    }
+    
+    .sigil-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 30px rgba(218, 165, 32, 0.15));
+    }
+    
+    /* Weighing of the Heart animation */
+    .scale-balance {
+      transform-origin: 275px 280px;
+      animation: balance 8s ease-in-out infinite;
+    }
+    
+    @keyframes balance {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+    
+    /* Ra's journey through the Duat */
+    .ra-barque {
+      animation: journey 20s linear infinite;
+    }
+    
+    @keyframes journey {
+      0% { transform: translateX(-50px); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateX(50px); opacity: 0; }
+    }
+    
+    /* Ankh glow */
+    .ankh-symbol {
+      animation: ankh-pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes ankh-pulse {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(218,165,32,0.3)); }
+      50% { filter: drop-shadow(0 0 15px rgba(218,165,32,0.7)); }
+    }
+    
+    /* Ammit waiting */
+    .ammit {
+      animation: ammit-wait 3s ease-in-out infinite;
+    }
+    
+    @keyframes ammit-wait {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+    }
+    
+    .decoder {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 15, 10, 0.9);
+      border: 1px solid rgba(218, 165, 32, 0.3);
+      max-width: 600px;
+      font-size: 0.55rem;
+    }
+    
+    .decoder-title {
+      color: #daa520;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+      font-size: 0.65rem;
+    }
+    
+    .decoder-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.3rem 0.8rem;
+      font-family: 'Fira Code', monospace;
+    }
+    
+    .god-name { color: #daa520; }
+    .god-role { opacity: 0.7; font-size: 0.5rem; }
+    .god-color { font-size: 0.45rem; color: #8b6914; }
+    
+    .spells-section {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(218,165,32,0.2);
+    }
+    
+    .encoded-data {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 15, 10, 0.95);
+      border: 1px solid rgba(218, 165, 32, 0.2);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.5rem;
+      color: #8b6914;
+      max-width: 600px;
+      word-break: break-all;
+    }
+    
+    .encoded-title {
+      color: #daa520;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.2em;
+    }
+    
+    .negative-confession {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: rgba(20, 15, 10, 0.7);
+      border-left: 2px solid rgba(218, 165, 32, 0.4);
+      font-size: 0.5rem;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.45rem;
+      letter-spacing: 0.2em;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <h1>THE BOOK OF THE DEAD</h1>
+  <div class="subtitle">SPELLS OF COMING FORTH BY DAY</div>
+  <div class="subtitle-hieroglyph">𓂋𓏤𓈖𓏤𓊪𓂋𓏏𓅓𓉔𓂋𓅱</div>
+  
+  <div class="sigil-container">
+    <svg class="sigil-svg" viewBox="0 0 550 650" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gold-egyptian" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffd700"/>
+          <stop offset="50%" stop-color="#daa520"/>
+          <stop offset="100%" stop-color="#8b6914"/>
+        </linearGradient>
+        
+        <linearGradient id="lapis-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1e3a5f"/>
+          <stop offset="100%" stop-color="#0a1628"/>
+        </linearGradient>
+        
+        <linearGradient id="nile-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1a4a6e"/>
+          <stop offset="50%" stop-color="#2a6a8e"/>
+          <stop offset="100%" stop-color="#1a4a6e"/>
+        </linearGradient>
+        
+        <filter id="papyrus">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise"/>
+          <feDiffuseLighting in="noise" lighting-color="#d4b896" surfaceScale="2">
+            <feDistantLight azimuth="45" elevation="60"/>
+          </feDiffuseLighting>
+        </filter>
+      </defs>
+      
+      <!-- Papyrus background -->
+      <rect x="50" y="40" width="450" height="570" rx="5" 
+            fill="rgba(212,184,150,0.1)" stroke="rgba(218,165,32,0.3)" stroke-width="1"/>
+      
+      <!-- The Duat - Underworld frame -->
+      <rect x="70" y="60" width="410" height="530" fill="none" 
+            stroke="rgba(218,165,32,0.2)" stroke-width="1"/>
+      
+      <!-- Ra's solar barque at top - journey through night -->
+      <g class="ra-barque" transform="translate(275, 90)">
+        <ellipse rx="60" ry="15" fill="none" stroke="rgba(218,165,32,0.6)" stroke-width="1"/>
+        <circle r="20" cy="-10" fill="rgba(255,215,0,0.4)"/>
+        <text y="-5" text-anchor="middle" font-size="16" fill="#daa520">☉</text>
+        <text y="35" text-anchor="middle" font-size="6" fill="rgba(218,165,32,0.6)">RA IN THE BARQUE</text>
+      </g>
+      
+      <!-- The Hall of Ma'at - Weighing of the Heart -->
+      <g transform="translate(275, 280)">
+        <!-- Ma'at feather -->
+        <g transform="translate(-80, -40)">
+          <text text-anchor="middle" font-size="28" fill="rgba(218,165,32,0.8)">𓆄</text>
+          <text y="40" text-anchor="middle" font-size="6" fill="rgba(218,165,32,0.6)">FEATHER</text>
+          <text y="50" text-anchor="middle" font-size="5" fill="rgba(218,165,32,0.4)">OF MA'AT</text>
+        </g>
+        
+        <!-- Scale beam -->
+        <g class="scale-balance">
+          <line x1="-100" y1="0" x2="100" y2="0" stroke="#daa520" stroke-width="2"/>
+          <line x1="0" y1="-30" x2="0" y2="0" stroke="#daa520" stroke-width="2"/>
+          
+          <!-- Left pan - Heart -->
+          <g transform="translate(-80, 0)">
+            <line x1="0" y1="0" x2="0" y2="40" stroke="#daa520" stroke-width="1"/>
+            <ellipse cy="50" rx="25" ry="10" fill="none" stroke="#daa520" stroke-width="1"/>
+            <text y="55" text-anchor="middle" font-size="14" fill="#c41e3a">♥</text>
+          </g>
+          
+          <!-- Right pan - Feather -->
+          <g transform="translate(80, 0)">
+            <line x1="0" y1="0" x2="0" y2="40" stroke="#daa520" stroke-width="1"/>
+            <ellipse cy="50" rx="25" ry="10" fill="none" stroke="#daa520" stroke-width="1"/>
+            <text y="55" text-anchor="middle" font-size="14" fill="#daa520">🪶</text>
+          </g>
+        </g>
+        
+        <!-- Thoth recording -->
+        <g transform="translate(150, 20)">
+          <text text-anchor="middle" font-size="24" fill="rgba(218,165,32,0.7)">𓅝</text>
+          <text y="35" text-anchor="middle" font-size="5" fill="rgba(218,165,32,0.5)">THOTH</text>
+        </g>
+        
+        <!-- Anubis attending -->
+        <g transform="translate(-150, 20)">
+          <text text-anchor="middle" font-size="24" fill="rgba(30,30,30,0.8)">𓃣</text>
+          <text y="35" text-anchor="middle" font-size="5" fill="rgba(218,165,32,0.5)">ANUBIS</text>
+        </g>
+      </g>
+      
+      <!-- Ammit - Devourer of the Dead -->
+      <g class="ammit" transform="translate(275, 400)">
+        <text text-anchor="middle" font-size="20" fill="rgba(139,0,0,0.6)">🐊</text>
+        <text y="30" text-anchor="middle" font-size="5" fill="rgba(218,165,32,0.4)">AMMIT WAITS</text>
+      </g>
+      
+      <!-- Osiris enthroned -->
+      <g transform="translate(275, 480)">
+        <rect x="-40" y="-30" width="80" height="60" fill="none" 
+              stroke="rgba(218,165,32,0.4)" stroke-width="1"/>
+        <text y="5" text-anchor="middle" font-size="32" fill="rgba(0,100,0,0.7)">𓁹</text>
+        <text y="45" text-anchor="middle" font-size="6" fill="rgba(218,165,32,0.6)">OSIRIS · LORD OF THE DUAT</text>
+      </g>
+      
+      <!-- The 42 Assessors represented as stars -->
+      <g fill="rgba(218,165,32,0.3)" font-size="6">
+        <!-- Left column of assessors -->
+        <text x="90" y="180">★</text>
+        <text x="90" y="200">★</text>
+        <text x="90" y="220">★</text>
+        <text x="90" y="240">★</text>
+        <text x="90" y="260">★</text>
+        <text x="90" y="280">★</text>
+        <text x="90" y="300">★</text>
+        <text x="90" y="320">★</text>
+        <text x="90" y="340">★</text>
+        <text x="90" y="360">★</text>
+        <text x="90" y="380">★</text>
+        <text x="90" y="400">★</text>
+        <text x="90" y="420">★</text>
+        <text x="90" y="440">★</text>
+        <text x="90" y="460">★</text>
+        <text x="90" y="480">★</text>
+        <text x="90" y="500">★</text>
+        <text x="90" y="520">★</text>
+        <text x="90" y="540">★</text>
+        <text x="90" y="560">★</text>
+        <text x="90" y="580">★</text>
+        
+        <!-- Right column of assessors -->
+        <text x="450" y="180">★</text>
+        <text x="450" y="200">★</text>
+        <text x="450" y="220">★</text>
+        <text x="450" y="240">★</text>
+        <text x="450" y="260">★</text>
+        <text x="450" y="280">★</text>
+        <text x="450" y="300">★</text>
+        <text x="450" y="320">★</text>
+        <text x="450" y="340">★</text>
+        <text x="450" y="360">★</text>
+        <text x="450" y="380">★</text>
+        <text x="450" y="400">★</text>
+        <text x="450" y="420">★</text>
+        <text x="450" y="440">★</text>
+        <text x="450" y="460">★</text>
+        <text x="450" y="480">★</text>
+        <text x="450" y="500">★</text>
+        <text x="450" y="520">★</text>
+        <text x="450" y="540">★</text>
+        <text x="450" y="560">★</text>
+        <text x="450" y="580">★</text>
+      </g>
+      <text x="90" y="170" font-size="5" fill="rgba(218,165,32,0.4)">42 ASSESSORS</text>
+      
+      <!-- Ankh - Key of Life -->
+      <g class="ankh-symbol" transform="translate(275, 550)">
+        <text text-anchor="middle" font-size="28" fill="#daa520">☥</text>
+        <text y="35" text-anchor="middle" font-size="5" fill="rgba(218,165,32,0.5)">ANKH · ETERNAL LIFE</text>
+      </g>
+      
+      <!-- Key spells numbered -->
+      <g font-size="5" fill="rgba(218,165,32,0.4)">
+        <text x="110" y="100">SPELL 1: GOING FORTH</text>
+        <text x="350" y="100">SPELL 125: WEIGHING</text>
+        <text x="110" y="560">SPELL 30B: HEART</text>
+        <text x="350" y="560">SPELL 6: SHABTI</text>
+      </g>
+      
+      <!-- Border hieroglyphs -->
+      <text x="60" y="35" font-size="8" fill="rgba(218,165,32,0.3)">𓂀 𓏏 𓆣 𓋹 𓊹 𓏤 𓂋 𓈖 𓊪 𓂋 𓏏 𓅓 𓉔 𓂋 𓅱 𓂀</text>
+      <text x="60" y="615" font-size="8" fill="rgba(218,165,32,0.3)">𓇳 𓏤 𓁹 𓊹 𓏤 𓃭 𓏏 𓆇 𓏤 𓇯 𓂝 𓈖 𓏌 𓏛 𓇳</text>
+    </svg>
+  </div>
+  
+  <div class="decoder">
+    <div class="decoder-title">◆ PRINCIPAL DEITIES ENCODED</div>
+    <div class="decoder-grid">
+      <span class="god-name">OSIRIS</span>
+      <span class="god-role">Lord of the Duat, Judge of the Dead</span>
+      <span class="god-color">RGB(0,100,0)</span>
+      
+      <span class="god-name">ANUBIS</span>
+      <span class="god-role">Guide of Souls, Embalmer</span>
+      <span class="god-color">RGB(30,30,30)</span>
+      
+      <span class="god-name">THOTH</span>
+      <span class="god-role">Scribe, Recorder of Judgment</span>
+      <span class="god-color">RGB(218,165,32)</span>
+      
+      <span class="god-name">MA'AT</span>
+      <span class="god-role">Truth, Justice, Cosmic Order</span>
+      <span class="god-color">RGB(255,255,255)</span>
+      
+      <span class="god-name">RA</span>
+      <span class="god-role">Sun God, Traverser of Duat</span>
+      <span class="god-color">RGB(255,215,0)</span>
+      
+      <span class="god-name">AMMIT</span>
+      <span class="god-role">Devourer of the Unworthy</span>
+      <span class="god-color">RGB(139,0,0)</span>
+    </div>
+    
+    <div class="spells-section">
+      <strong>KEY SPELLS:</strong><br>
+      <em>Spell 1:</em> Coming Forth by Day · 
+      <em>Spell 6:</em> Shabti Formula · 
+      <em>Spell 17:</em> Origin Mysteries · 
+      <em>Spell 30B:</em> Heart Scarab · 
+      <em>Spell 125:</em> Negative Confession / Weighing of Heart
+    </div>
+  </div>
+  
+  <div class="negative-confession">
+    "I have not done evil... I have not stolen... I have not killed... I have not told lies...
+    I have not caused weeping... I am pure, I am pure, I am pure."
+    <br>— From the 42 Negative Confessions, Spell 125
+  </div>
+  
+  <div class="encoded-data">
+    <div class="encoded-title">SIGIL SEED</div>
+    EGYPT01|OSIRIS:006400|ANUBIS:1E1E1E|THOTH:DAA520|MAAT:FFFFFF|RA:FFD700|AMMIT:8B0000|SPELLS:1,6,17,30B,125|ASSESSORS:42|ANKH:LIFE|SRC:papyrus_ani_budge1895
+  </div>
+  
+  <div class="footer">PRT M HRW · BOOK OF COMING FORTH BY DAY · PAPYRUS OF ANI · ~1250 BCE · BUDGE TRANSLATION 1895 · ENCODED 2024</div>
+</body>
+</html>

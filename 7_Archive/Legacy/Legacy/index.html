@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holoseed Nexus</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0a0a0f;
+            color: #c8d2dc;
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .subtitle {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #12121a 0%, #1a1a2e 100%);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            border-color: #d4af37;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            opacity: 0.7;
+        }
+        
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #e8e8e8;
+        }
+        
+        .card .tradition {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.75rem;
+        }
+        
+        .card .seed {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #555;
+            word-break: break-all;
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #444;
+            font-size: 0.9rem;
+        }
+        
+        .footer .num { color: #d4af37; }
+        
+        .seed-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌱 Holoseed Nexus</h1>
+    <p class="subtitle">The seed contains the tree</p>
+    
+    <div class="grid">
+        <a href="holoseeds/kybalion_holoseed.html" class="card" style="--accent: #d4af37;">
+            <div class="seed-icon">☿</div>
+            <h2>The Kybalion</h2>
+            <div class="tradition">Hermetic • 7 Principles</div>
+            <div class="seed">KYB01|P1:FFFFFF|P2:D4AF37|...</div>
+        </a>
+        
+        <a href="holoseeds/emerald_tablet_holoseed.html" class="card" style="--accent: #50c878;">
+            <div class="seed-icon">⚗</div>
+            <h2>Emerald Tablet</h2>
+            <div class="tradition">Alchemical • As Above So Below</div>
+            <div class="seed">EMR01|RGB:50C878|VERSES:14|...</div>
+        </a>
+        
+        <a href="holoseeds/magick_liber_aba_holoseed.html" class="card" style="--accent: #ff3366;">
+            <div class="seed-icon">⍟</div>
+            <h2>Magick (Liber ABA)</h2>
+            <div class="tradition">Thelemic • Book IV</div>
+            <div class="seed">MAGICK01|THELEMA:93|AGAPE:93|...</div>
+        </a>
+        
+        <a href="holoseeds/egyptian_book_dead_holoseed.html" class="card" style="--accent: #006400;">
+            <div class="seed-icon">𓂀</div>
+            <h2>Egyptian Book of the Dead</h2>
+            <div class="tradition">Kemetic • 42 Assessors</div>
+            <div class="seed">EGYPT01|OSIRIS:006400|MAAT:FFFFFF|...</div>
+        </a>
+        
+        <a href="holoseeds/tibetan_bardo_holoseed.html" class="card" style="--accent: #e6b800;">
+            <div class="seed-icon">☸</div>
+            <h2>Tibetan Bardo Thodol</h2>
+            <div class="tradition">Vajrayana • 49 Days</div>
+            <div class="seed">TIBET01|CHIKHAI:FFFFFF|CHONYID:E6B800|...</div>
+        </a>
+        
+        <a href="holoseeds/tao_te_ching_holoseed.html" class="card" style="--accent: #607080;">
+            <div class="seed-icon">☯</div>
+            <h2>Tao Te Ching</h2>
+            <div class="tradition">Taoist • 81 Verses</div>
+            <div class="seed">TAO01|VERSES:81|YIN:1a2530|YANG:c8d2dc|...</div>
+        </a>
+        
+        <a href="holoseeds/one_electron_holoseed.html" class="card" style="--accent: #00ffff;">
+            <div class="seed-icon">⚛</div>
+            <h2>One Electron Universe</h2>
+            <div class="tradition">Physics/Metaphysics • Wheeler-Feynman</div>
+            <div class="seed">ONEELEC01|ELECTRON:00FFFF|POSITRON:FF6B6B|...</div>
+        </a>
+        
+        <a href="holoseeds/special_relativity_holoseed.html" class="card" style="--accent: #9966ff;">
+            <div class="seed-icon">∞</div>
+            <h2>Special Relativity</h2>
+            <div class="tradition">Physics • E=mc²</div>
+            <div class="seed">RELATIVITY01|C:299792458|E:MC2|...</div>
+        </a>
+        
+        <a href="holoseeds/plantyglyph_master_holoseed.html" class="card" style="--accent: #90ee90;">
+            <div class="seed-icon">🌱</div>
+            <h2>Plantyglyph Master</h2>
+            <div class="tradition">Meta • The Language Itself</div>
+            <div class="seed">PG02|p:ACTIVE|k:ACTIVE</div>
+        </a>
+    </div>
+    
+    <div class="footer">
+        <span class="num">93</span> · Holoseed Nexus v1.2 · <span class="num">93/93</span>
+    </div>
+</body>
+</html>

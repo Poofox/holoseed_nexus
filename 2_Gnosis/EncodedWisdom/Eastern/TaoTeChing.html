@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道德經 · Tao Te Ching Holoseed</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* The colors of not-trying */
+            --void: #0a0a0c;
+            --mist: rgba(180, 190, 200, 0.08);
+            --water: #2a3a4a;
+            --water-deep: #1a2530;
+            --mountain: #3a3a3c;
+            --breath: rgba(200, 210, 220, 0.15);
+            --gold-ancient: rgba(180, 160, 120, 0.6);
+            --jade: rgba(120, 160, 140, 0.4);
+            --emptiness: transparent;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: var(--void);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Serif SC', serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* The mist that was there before you noticed */
+        .mist-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .mist {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 50%, var(--mist) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, var(--breath) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, var(--mist) 0%, transparent 45%);
+            animation: drift 60s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(-10%, -10%); }
+            50% { transform: translate(-15%, -5%); }
+        }
+        
+        /* The container - like the valley that receives */
+        .vessel {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem;
+        }
+        
+        /* The circle that is not a circle */
+        .tao-circle {
+            width: 320px;
+            height: 320px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 81 verses, 9x9, the outer ring */
+        .verse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: slow-turn 324s linear infinite; /* 4 seconds per verse */
+        }
+        
+        .verse-dot {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--jade);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            opacity: 0.4;
+            transition: opacity 2s ease, transform 2s ease;
+        }
+        
+        .verse-dot:hover {
+            opacity: 1;
+            transform: scale(2);
+        }
+        
+        @keyframes slow-turn {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* The yin-yang emerges from emptiness */
+        .taijitu {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            animation: breathe 12s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.85;
+            }
+            50% { 
+                transform: scale(1.02);
+                opacity: 0.95;
+            }
+        }
+        
+        .taijitu-outer {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--water-deep) 50%, var(--breath) 50%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 60px rgba(120, 160, 140, 0.1),
+                inset 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .yin-curve, .yang-curve {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;
+        }
+        
+        .yin-curve {
+            background: var(--breath);
+            top: 0;
+            left: 25%;
+        }
+        
+        .yang-curve {
+            background: var(--water-deep);
+            bottom: 0;
+            left: 25%;
+        }
+        
+        .yin-dot, .yang-dot {
+            position: absolute;
+            width: 15%;
+            height: 15%;
+            border-radius: 50%;
+        }
+        
+        .yin-dot {
+            background: var(--breath);
+            bottom: 30%;
+            left: 42.5%;
+            animation: pulse-soft 8s ease-in-out infinite;
+        }
+        
+        .yang-dot {
+            background: var(--water-deep);
+            top: 30%;
+            left: 42.5%;
+            animation: pulse-soft 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        /* The character that speaks without speaking */
+        .dao-character {
+            position: absolute;
+            font-size: 2.5rem;
+            font-weight: 200;
+            color: var(--gold-ancient);
+            text-shadow: 0 0 20px rgba(180, 160, 120, 0.3);
+            animation: fade-presence 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes fade-presence {
+            0%, 100% { opacity: 0; }
+            40%, 60% { opacity: 0.7; }
+        }
+        
+        /* Text below - appearing like ink in water */
+        .teaching {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--breath);
+            max-width: 400px;
+        }
+        
+        .opening-line {
+            font-size: 1.1rem;
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: ink-spread 4s ease-out 2s forwards;
+        }
+        
+        .opening-line-chinese {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-ancient);
+            opacity: 0;
+            animation: ink-spread 4s ease-out 1s forwards;
+        }
+        
+        @keyframes ink-spread {
+            from { 
+                opacity: 0;
+                letter-spacing: 0.3em;
+            }
+            to { 
+                opacity: 0.7;
+                letter-spacing: 0.1em;
+            }
+        }
+        
+        .core-teachings {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .teaching-line {
+            font-size: 0.85rem;
+            font-weight: 200;
+            opacity: 0;
+            color: var(--jade);
+        }
+        
+        .teaching-line:nth-child(1) { animation: appear 3s ease-out 3s forwards; }
+        .teaching-line:nth-child(2) { animation: appear 3s ease-out 4s forwards; }
+        .teaching-line:nth-child(3) { animation: appear 3s ease-out 5s forwards; }
+        .teaching-line:nth-child(4) { animation: appear 3s ease-out 6s forwards; }
+        .teaching-line:nth-child(5) { animation: appear 3s ease-out 7s forwards; }
+        
+        @keyframes appear {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 0.6; transform: translateY(0); }
+        }
+        
+        /* The seed string - almost invisible unless you look */
+        .seed-string {
+            position: fixed;
+            bottom: 1.5rem;
+            font-family: monospace;
+            font-size: 0.65rem;
+            color: var(--mountain);
+            letter-spacing: 0.05em;
+            opacity: 0.3;
+            transition: opacity 2s ease;
+        }
+        
+        .seed-string:hover {
+            opacity: 0.7;
+        }
+        
+        /* The number 81 - hidden in plain sight */
+        .verse-count {
+            position: absolute;
+            bottom: -2rem;
+            font-size: 0.7rem;
+            color: var(--jade);
+            opacity: 0.4;
+            letter-spacing: 0.3em;
+        }
+        
+        /* Water ripple on click - wu wei interaction */
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            border: 1px solid var(--jade);
+            pointer-events: none;
+            animation: ripple-out 3s ease-out forwards;
+        }
+        
+        @keyframes ripple-out {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            to {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+                margin-left: -150px;
+                margin-top: -150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mist-layer">
+        <div class="mist"></div>
+    </div>
+    
+    <div class="vessel">
+        <div class="tao-circle">
+            <div class="verse-ring" id="verseRing"></div>
+            
+            <div class="taijitu">
+                <div class="taijitu-outer">
+                    <div class="yin-curve"></div>
+                    <div class="yang-curve"></div>
+                    <div class="yin-dot"></div>
+                    <div class="yang-dot"></div>
+                </div>
+                <span class="dao-character">道</span>
+            </div>
+            
+            <span class="verse-count">八 十 一</span>
+        </div>
+        
+        <div class="teaching">
+            <p class="opening-line-chinese">道可道非常道</p>
+            <p class="opening-line">The Tao that can be spoken is not the eternal Tao</p>
+            
+            <div class="core-teachings">
+                <span class="teaching-line">名可名非常名 · The name that can be named is not the eternal name</span>
+                <span class="teaching-line">無為 · Wu wei · Acting without forcing</span>
+                <span class="teaching-line">上善若水 · The highest good is like water</span>
+                <span class="teaching-line">知者不言 · Those who know do not speak</span>
+                <span class="teaching-line">反者道之動 · Return is the movement of the Tao</span>
+            </div>
+        </div>
+    </div>
+    
+    <span class="seed-string">TAO01|VERSES:81|YIN:1a2530|YANG:c8d2dc|DAO:道|WUWEI:無為|RETURN:反</span>
+    
+    <script>
+        // Generate 81 verse dots in a ring - 9×9
+        const ring = document.getElementById('verseRing');
+        for (let i = 0; i < 81; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'verse-dot';
+            const angle = (i / 81) * 360;
+            const radius = 155;
+            dot.style.transform = `rotate(${angle}deg) translateY(-${radius}px)`;
+            dot.title = `Verse ${i + 1}`;
+            ring.appendChild(dot);
+        }
+        
+        // Wu wei ripples - water responds to touch without effort
+        document.body.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 3000);
+        });
+        
+        // The Tao character appears and disappears like a thought
+        // Already handled by CSS animation, but we could add more here
+    </script>
+</body>
+</html>

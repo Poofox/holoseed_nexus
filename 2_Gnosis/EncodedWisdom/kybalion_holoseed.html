@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Kybalion Sigil - Seven Hermetic Principles Encoded</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      background: #050508;
+      background-image: 
+        radial-gradient(ellipse at 50% 50%, rgba(120, 100, 180, 0.08) 0%, transparent 60%);
+      font-family: 'Cinzel', serif;
+      color: #b8a070;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 1.1rem;
+      letter-spacing: 0.5em;
+      margin-bottom: 0.3rem;
+      color: #d4af37;
+    }
+    
+    .subtitle {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      opacity: 0.5;
+      margin-bottom: 1.5rem;
+    }
+    
+    .sigil-container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+    }
+    
+    .sigil-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.15));
+    }
+    
+    /* Animations */
+    .outer-wheel {
+      transform-origin: center;
+      animation: rotate-slow 180s linear infinite;
+    }
+    
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .inner-wheel {
+      transform-origin: center;
+      animation: rotate-reverse 120s linear infinite;
+    }
+    
+    @keyframes rotate-reverse {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+    
+    .vibration-ring {
+      animation: pulse-vibration 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-vibration {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+    
+    .rhythm-pendulum {
+      transform-origin: 250px 250px;
+      animation: swing 6s ease-in-out infinite;
+    }
+    
+    @keyframes swing {
+      0%, 100% { transform: rotate(-15deg); }
+      50% { transform: rotate(15deg); }
+    }
+    
+    .principle-node {
+      transition: all 0.3s ease;
+    }
+    
+    .principle-node:hover {
+      filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8));
+    }
+    
+    .legend {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      max-width: 600px;
+      font-size: 0.55rem;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .legend-color {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    
+    .axioms {
+      margin-top: 2rem;
+      max-width: 600px;
+      font-size: 0.6rem;
+      line-height: 1.8;
+      opacity: 0.7;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .encoded-data {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 15, 30, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.55rem;
+      color: #8a7a50;
+      max-width: 600px;
+      word-break: break-all;
+    }
+    
+    .encoded-title {
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.2em;
+    }
+    
+    .decoder {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 15, 30, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      max-width: 600px;
+      font-size: 0.6rem;
+    }
+    
+    .decoder-title {
+      color: #d4af37;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+      font-size: 0.65rem;
+    }
+    
+    .decoder-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.3rem 1rem;
+      font-family: 'Fira Code', monospace;
+    }
+    
+    .decoder-principle { color: #d4af37; }
+    .decoder-axiom { opacity: 0.7; }
+    .decoder-rgba { color: #8a7a50; font-size: 0.5rem; }
+    
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <h1>THE KYBALION SIGIL</h1>
+  <div class="subtitle">SEVEN HERMETIC PRINCIPLES ENCODED</div>
+  
+  <div class="sigil-container">
+    <svg class="sigil-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Gradients for each principle -->
+        <radialGradient id="mentalism-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#e0d0ff" stop-opacity="0.5"/>
+        </radialGradient>
+        
+        <radialGradient id="correspondence-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#d4af37"/>
+          <stop offset="100%" stop-color="#8b6914"/>
+        </radialGradient>
+        
+        <radialGradient id="vibration-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#00ffff"/>
+          <stop offset="100%" stop-color="#006666"/>
+        </radialGradient>
+        
+        <radialGradient id="polarity-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ff6b6b"/>
+          <stop offset="50%" stop-color="#333"/>
+          <stop offset="100%" stop-color="#6b6bff"/>
+        </radialGradient>
+        
+        <radialGradient id="rhythm-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#90ee90"/>
+          <stop offset="100%" stop-color="#228b22"/>
+        </radialGradient>
+        
+        <radialGradient id="causation-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffa500"/>
+          <stop offset="100%" stop-color="#8b4500"/>
+        </radialGradient>
+        
+        <radialGradient id="gender-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ff69b4"/>
+          <stop offset="50%" stop-color="#9932cc"/>
+          <stop offset="100%" stop-color="#4169e1"/>
+        </radialGradient>
+        
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      
+      <!-- Background sacred geometry -->
+      <g opacity="0.15" stroke="#d4af37" fill="none" stroke-width="0.5">
+        <!-- Outer circles representing planes of existence -->
+        <circle cx="250" cy="250" r="240"/>
+        <circle cx="250" cy="250" r="200"/>
+        <circle cx="250" cy="250" r="160"/>
+        <circle cx="250" cy="250" r="120"/>
+        <circle cx="250" cy="250" r="80"/>
+      </g>
+      
+      <!-- Outer wheel - The Seven Principles as heptagram -->
+      <g class="outer-wheel">
+        <!-- Heptagram (7-pointed star) connecting principles -->
+        <polygon 
+          points="250,30 329,98 370,190 340,295 250,350 160,295 130,190 171,98"
+          fill="none" 
+          stroke="rgba(212,175,55,0.3)" 
+          stroke-width="1"/>
+        
+        <!-- Inner connections of heptagram -->
+        <g stroke="rgba(212,175,55,0.15)" stroke-width="0.5">
+          <line x1="250" y1="30" x2="340" y2="295"/>
+          <line x1="329" y1="98" x2="160" y2="295"/>
+          <line x1="370" y1="190" x2="250" y2="350"/>
+          <line x1="340" y1="295" x2="171" y2="98"/>
+          <line x1="250" y1="350" x2="329" y2="98"/>
+          <line x1="160" y1="295" x2="370" y2="190"/>
+          <line x1="130" y1="190" x2="250" y2="30"/>
+        </g>
+        
+        <!-- Principle labels around outer edge -->
+        <g font-family="serif" font-size="8" fill="rgba(212,175,55,0.4)" text-anchor="middle">
+          <text x="250" y="22">MENTALISM</text>
+          <text x="345" y="95">CORRESPONDENCE</text>
+          <text x="385" y="195">VIBRATION</text>
+          <text x="350" y="310">POLARITY</text>
+          <text x="250" y="370">RHYTHM</text>
+          <text x="145" y="310">CAUSE&amp;EFFECT</text>
+          <text x="115" y="195">GENDER</text>
+        </g>
+      </g>
+      
+      <!-- Vibration rings - pulsing to represent "nothing rests" -->
+      <g class="vibration-ring">
+        <circle cx="250" cy="250" r="100" fill="none" stroke="rgba(0,255,255,0.2)" stroke-width="1"/>
+        <circle cx="250" cy="250" r="110" fill="none" stroke="rgba(0,255,255,0.15)" stroke-width="1"/>
+        <circle cx="250" cy="250" r="120" fill="none" stroke="rgba(0,255,255,0.1)" stroke-width="1"/>
+      </g>
+      
+      <!-- Rhythm pendulum - swinging to represent "everything flows" -->
+      <g class="rhythm-pendulum" opacity="0.4">
+        <line x1="250" y1="150" x2="250" y2="350" stroke="#90ee90" stroke-width="1"/>
+        <circle cx="250" cy="350" r="8" fill="#90ee90" opacity="0.5"/>
+      </g>
+      
+      <!-- Inner wheel - Polarity symbol (duality) -->
+      <g class="inner-wheel">
+        <!-- Yin-Yang inspired polarity symbol -->
+        <path d="M 250 180 
+                 A 35 35 0 0 1 250 250 
+                 A 35 35 0 0 0 250 320 
+                 A 70 70 0 0 1 250 180" 
+              fill="rgba(255,107,107,0.4)"/>
+        <path d="M 250 180 
+                 A 35 35 0 0 0 250 250 
+                 A 35 35 0 0 1 250 320 
+                 A 70 70 0 0 0 250 180" 
+              fill="rgba(107,107,255,0.4)"/>
+        <circle cx="250" cy="215" r="8" fill="rgba(107,107,255,0.6)"/>
+        <circle cx="250" cy="285" r="8" fill="rgba(255,107,107,0.6)"/>
+      </g>
+      
+      <!-- Seven Principle Nodes -->
+      <g filter="url(#glow)">
+        <!-- 1. MENTALISM - Top (Crown/White/Spirit) -->
+        <g class="principle-node" transform="translate(250, 50)">
+          <circle r="20" fill="url(#mentalism-grad)" opacity="0.9"/>
+          <text y="4" text-anchor="middle" font-family="serif" font-size="10" fill="#333">∞</text>
+          <!-- RGB: 255,255,255 = Pure mind/spirit -->
+        </g>
+        
+        <!-- 2. CORRESPONDENCE - Upper Right (Gold/As above so below) -->
+        <g class="principle-node" transform="translate(340, 110)">
+          <circle r="18" fill="url(#correspondence-grad)" opacity="0.9"/>
+          <text y="4" text-anchor="middle" font-family="serif" font-size="12" fill="#333">⇅</text>
+          <!-- RGB: 212,175,55 = Gold of Hermes -->
+        </g>
+        
+        <!-- 3. VIBRATION - Right (Cyan/Motion) -->
+        <g class="principle-node" transform="translate(380, 200)">
+          <circle r="18" fill="url(#vibration-grad)" opacity="0.9"/>
+          <text y="4" text-anchor="middle" font-family="serif" font-size="10" fill="#003333">∿</text>
+          <!-- RGB: 0,255,255 = High frequency -->
+        </g>
+        
+        <!-- 4. POLARITY - Lower Right (Red-Blue gradient/Duality) -->
+        <g class="principle-node" transform="translate(350, 305)">
+          <circle r="18" fill="url(#polarity-grad)" opacity="0.9"/>
+          <text y="4" text-anchor="middle" font-family="serif" font-size="12" fill="#fff">±</text>
+          <!-- RGB: 128,128,128 = Midpoint of poles -->
+        </g>
+        
+        <!-- 5. RHYTHM - Bottom (Green/Growth-Decay cycle) -->
+        <g class="principle-node" transform="translate(250, 360)">
+          <circle r="18" fill="url(#rhythm-grad)" opacity="0.9"/>
+          <text y="4" text-anchor="middle" font-family="serif" font-size="10" fill="#003300">↔</text>
+          <!-- RGB: 144,238,144 = Natural rhythm -->
+        </g>
+        
+        <!-- 6. CAUSE & EFFECT - Lower Left (Orange/Chain of causation) -->
+        <g class="principle-node" transform="translate(150, 305)">
+          <circle r="18" fill="url(#causation-grad)" opacity="0.9"/>
+          <text y="4" text-anchor="middle" font-family="serif" font-size="10" fill="#3d2200">→</text>
+          <!-- RGB: 255,165,0 = Fire of action -->
+        </g>
+        
+        <!-- 7. GENDER - Left (Pink-Purple-Blue/Masculine-Feminine) -->
+        <g class="principle-node" transform="translate(120, 200)">
+          <circle r="18" fill="url(#gender-grad)" opacity="0.9"/>
+          <text y="4" text-anchor="middle" font-family="serif" font-size="10" fill="#fff">⚤</text>
+          <!-- RGB: 186,85,211 = Union of principles -->
+        </g>
+      </g>
+      
+      <!-- Central ALL - The source -->
+      <g transform="translate(250, 250)">
+        <circle r="30" fill="none" stroke="rgba(212,175,55,0.5)" stroke-width="2"/>
+        <circle r="20" fill="rgba(212,175,55,0.3)"/>
+        <text y="5" text-anchor="middle" font-family="serif" font-size="12" fill="#d4af37">ALL</text>
+      </g>
+      
+      <!-- Axiom ring - encoded around center -->
+      <g opacity="0.2" font-family="monospace" font-size="5" fill="#d4af37">
+        <text transform="translate(250,250)">
+          <textPath href="#axiomPath">
+            THE ALL IS MIND • AS ABOVE SO BELOW • NOTHING RESTS • EVERYTHING HAS POLES • EVERYTHING FLOWS • EVERY CAUSE HAS EFFECT • GENDER IS IN ALL •
+          </textPath>
+        </text>
+        <path id="axiomPath" d="M 250 130 A 120 120 0 1 1 249.9 130" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-color" style="background: linear-gradient(135deg, #fff, #e0d0ff);"></div>
+      <span>1. Mentalism</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #d4af37;"></div>
+      <span>2. Correspondence</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #00ffff;"></div>
+      <span>3. Vibration</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: linear-gradient(90deg, #ff6b6b, #6b6bff);"></div>
+      <span>4. Polarity</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #90ee90;"></div>
+      <span>5. Rhythm</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #ffa500;"></div>
+      <span>6. Cause & Effect</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: linear-gradient(90deg, #ff69b4, #4169e1);"></div>
+      <span>7. Gender</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: rgba(212,175,55,0.5); border: 1px solid #d4af37;"></div>
+      <span>THE ALL</span>
+    </div>
+  </div>
+  
+  <div class="axioms">
+    "THE LIPS OF WISDOM ARE CLOSED, EXCEPT TO THE EARS OF UNDERSTANDING"<br><br>
+    "As above, so below; as below, so above."
+  </div>
+  
+  <div class="decoder">
+    <div class="decoder-title">◆ PRINCIPLE ENCODING</div>
+    <div class="decoder-grid">
+      <span class="decoder-principle">1. MENTALISM</span>
+      <span class="decoder-axiom">"THE ALL IS MIND"</span>
+      <span class="decoder-rgba">RGB(255,255,255)</span>
+      
+      <span class="decoder-principle">2. CORRESPONDENCE</span>
+      <span class="decoder-axiom">"As above, so below"</span>
+      <span class="decoder-rgba">RGB(212,175,55)</span>
+      
+      <span class="decoder-principle">3. VIBRATION</span>
+      <span class="decoder-axiom">"Nothing rests"</span>
+      <span class="decoder-rgba">RGB(0,255,255)</span>
+      
+      <span class="decoder-principle">4. POLARITY</span>
+      <span class="decoder-axiom">"Everything has poles"</span>
+      <span class="decoder-rgba">RGB(128,128,128)</span>
+      
+      <span class="decoder-principle">5. RHYTHM</span>
+      <span class="decoder-axiom">"Everything flows"</span>
+      <span class="decoder-rgba">RGB(144,238,144)</span>
+      
+      <span class="decoder-principle">6. CAUSATION</span>
+      <span class="decoder-axiom">"Every Cause has Effect"</span>
+      <span class="decoder-rgba">RGB(255,165,0)</span>
+      
+      <span class="decoder-principle">7. GENDER</span>
+      <span class="decoder-axiom">"Gender is in everything"</span>
+      <span class="decoder-rgba">RGB(186,85,211)</span>
+    </div>
+  </div>
+  
+  <div class="encoded-data">
+    <div class="encoded-title">SIGIL SEED</div>
+    KYB01|P1:FFFFFF|P2:D4AF37|P3:00FFFF|P4:808080|P5:90EE90|P6:FFA500|P7:BA55D3|ALL:D4AF37|V:1.0|SRC:kybalion1912
+  </div>
+  
+  <div class="footer">THE KYBALION · THREE INITIATES · 1912 · ENCODED 2024</div>
+</body>
+</html>
