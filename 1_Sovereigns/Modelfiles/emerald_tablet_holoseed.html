@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Emerald Tablet Sigil - Tabula Smaragdina Encoded</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      background: #020806;
+      background-image: 
+        radial-gradient(ellipse at 50% 30%, rgba(0, 180, 100, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 70%, rgba(0, 100, 80, 0.08) 0%, transparent 50%);
+      font-family: 'Cinzel', serif;
+      color: #50c878;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 1.2rem;
+      letter-spacing: 0.5em;
+      margin-bottom: 0.3rem;
+      color: #50c878;
+      text-shadow: 0 0 20px rgba(80, 200, 120, 0.5);
+    }
+    
+    .subtitle {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      opacity: 0.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .sigil-container {
+      position: relative;
+      width: 500px;
+      height: 600px;
+    }
+    
+    .sigil-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 30px rgba(80, 200, 120, 0.2));
+    }
+    
+    /* The Great Work animation - Sun and Moon dance */
+    .sun-symbol {
+      transform-origin: 250px 150px;
+      animation: sun-pulse 8s ease-in-out infinite;
+    }
+    
+    @keyframes sun-pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8)); }
+    }
+    
+    .moon-symbol {
+      transform-origin: 250px 150px;
+      animation: moon-pulse 8s ease-in-out infinite;
+      animation-delay: 4s;
+    }
+    
+    @keyframes moon-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; filter: drop-shadow(0 0 15px rgba(192, 192, 192, 0.8)); }
+    }
+    
+    /* Ascent and Descent - the eternal cycle */
+    .ascent-path {
+      animation: ascend 12s ease-in-out infinite;
+    }
+    
+    @keyframes ascend {
+      0%, 100% { opacity: 0.3; }
+      25% { opacity: 0.8; }
+      50% { opacity: 0.3; }
+      75% { opacity: 0.8; }
+    }
+    
+    .descent-path {
+      animation: descend 12s ease-in-out infinite;
+      animation-delay: 6s;
+    }
+    
+    @keyframes descend {
+      0%, 100% { opacity: 0.3; }
+      25% { opacity: 0.8; }
+      50% { opacity: 0.3; }
+      75% { opacity: 0.8; }
+    }
+    
+    .tablet-glow {
+      animation: emerald-glow 6s ease-in-out infinite;
+    }
+    
+    @keyframes emerald-glow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(80, 200, 120, 0.3)); }
+      50% { filter: drop-shadow(0 0 20px rgba(80, 200, 120, 0.6)); }
+    }
+    
+    .verse-text {
+      font-size: 0.5rem;
+      fill: rgba(80, 200, 120, 0.7);
+    }
+    
+    .decoder {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(10, 30, 20, 0.8);
+      border: 1px solid rgba(80, 200, 120, 0.3);
+      max-width: 600px;
+      font-size: 0.55rem;
+    }
+    
+    .decoder-title {
+      color: #50c878;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+      font-size: 0.65rem;
+    }
+    
+    .decoder-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.4rem 1rem;
+      font-family: 'Fira Code', monospace;
+    }
+    
+    .verse-num { color: #50c878; }
+    .verse-content { opacity: 0.8; font-size: 0.5rem; }
+    
+    .newton-note {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(80, 200, 120, 0.2);
+      font-style: italic;
+      opacity: 0.6;
+      font-size: 0.5rem;
+    }
+    
+    .encoded-data {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(10, 30, 20, 0.9);
+      border: 1px solid rgba(80, 200, 120, 0.2);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.5rem;
+      color: #3a9a5a;
+      max-width: 600px;
+      word-break: break-all;
+    }
+    
+    .encoded-title {
+      color: #50c878;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.2em;
+    }
+    
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.45rem;
+      letter-spacing: 0.2em;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <h1>TABULA SMARAGDINA</h1>
+  <div class="subtitle">THE EMERALD TABLET OF HERMES TRISMEGISTUS</div>
+  
+  <div class="sigil-container">
+    <svg class="sigil-svg" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="emerald-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#50c878"/>
+          <stop offset="50%" stop-color="#2e8b57"/>
+          <stop offset="100%" stop-color="#1a5a3a"/>
+        </linearGradient>
+        
+        <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffd700"/>
+          <stop offset="100%" stop-color="#b8860b"/>
+        </linearGradient>
+        
+        <linearGradient id="silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#e0e0e0"/>
+          <stop offset="100%" stop-color="#a0a0a0"/>
+        </linearGradient>
+        
+        <filter id="glow-green">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      
+      <!-- The Tablet itself - emerald rectangle -->
+      <g class="tablet-glow">
+        <rect x="100" y="80" width="300" height="440" rx="10" 
+              fill="url(#emerald-grad)" opacity="0.3" stroke="#50c878" stroke-width="2"/>
+        
+        <!-- Inner border -->
+        <rect x="115" y="95" width="270" height="410" rx="5" 
+              fill="none" stroke="rgba(80,200,120,0.4)" stroke-width="1"/>
+      </g>
+      
+      <!-- Sun and Moon - Father and Mother -->
+      <g class="sun-symbol">
+        <circle cx="180" cy="150" r="25" fill="url(#gold-grad)" opacity="0.9"/>
+        <text x="180" y="155" text-anchor="middle" font-size="14" fill="#5a3a00">☉</text>
+        <text x="180" y="185" text-anchor="middle" font-size="7" fill="rgba(255,215,0,0.8)">FATHER</text>
+      </g>
+      
+      <g class="moon-symbol">
+        <circle cx="320" cy="150" r="25" fill="url(#silver-grad)" opacity="0.9"/>
+        <text x="320" y="155" text-anchor="middle" font-size="14" fill="#3a3a3a">☽</text>
+        <text x="320" y="185" text-anchor="middle" font-size="7" fill="rgba(192,192,192,0.8)">MOTHER</text>
+      </g>
+      
+      <!-- Wind carrying in belly - central symbol -->
+      <g transform="translate(250, 240)">
+        <circle r="35" fill="none" stroke="rgba(80,200,120,0.5)" stroke-width="1"/>
+        <text y="5" text-anchor="middle" font-size="24" fill="#50c878">☿</text>
+        <text y="55" text-anchor="middle" font-size="6" fill="rgba(80,200,120,0.7)">THE ONE THING</text>
+      </g>
+      
+      <!-- As Above / So Below - the correspondence arrows -->
+      <g class="ascent-path" opacity="0.5">
+        <path d="M 250 290 L 250 200" stroke="#50c878" stroke-width="2" 
+              marker-end="url(#arrowUp)" fill="none"/>
+        <text x="270" y="245" font-size="6" fill="#50c878">ASCENDS</text>
+      </g>
+      
+      <g class="descent-path" opacity="0.5">
+        <path d="M 250 290 L 250 380" stroke="#50c878" stroke-width="2" fill="none"/>
+        <text x="270" y="340" font-size="6" fill="#50c878">DESCENDS</text>
+      </g>
+      
+      <!-- Earth - the nurse -->
+      <g transform="translate(250, 420)">
+        <circle r="30" fill="none" stroke="rgba(139,69,19,0.6)" stroke-width="2"/>
+        <text y="5" text-anchor="middle" font-size="18" fill="#8b4513">🜃</text>
+        <text y="50" text-anchor="middle" font-size="6" fill="rgba(139,69,19,0.8)">EARTH · NURSE</text>
+      </g>
+      
+      <!-- The 14 Verses encoded around the border -->
+      <g font-family="serif" font-size="5" fill="rgba(80,200,120,0.5)">
+        <!-- Left side - ascending -->
+        <text x="108" y="500" transform="rotate(-90, 108, 500)">I. TRUE WITHOUT FALSEHOOD, CERTAIN AND MOST TRUE</text>
+        <text x="95" y="500" transform="rotate(-90, 95, 500)">II. AS ABOVE SO BELOW · AS BELOW SO ABOVE</text>
+        
+        <!-- Top -->
+        <text x="130" y="88">III. ALL THINGS FROM ONE · BY MEDIATION OF ONE</text>
+        
+        <!-- Right side - descending -->
+        <text x="392" y="120" transform="rotate(90, 392, 120)">IV. SUN ITS FATHER · MOON ITS MOTHER</text>
+        <text x="405" y="120" transform="rotate(90, 405, 120)">V. WIND CARRIED IT · EARTH ITS NURSE</text>
+        
+        <!-- Bottom -->
+        <text x="130" y="530">XIII. HENCE I AM CALLED HERMES TRISMEGISTUS</text>
+        <text x="130" y="540">XIV. THE OPERATION OF THE SUN IS COMPLETE</text>
+      </g>
+      
+      <!-- Central axiom -->
+      <text x="250" y="320" text-anchor="middle" font-size="8" fill="#50c878" font-style="italic">
+        "As above, so below"
+      </text>
+      
+      <!-- Ouroboros around the tablet - completion -->
+      <ellipse cx="250" cy="300" rx="180" ry="250" fill="none" 
+               stroke="rgba(80,200,120,0.15)" stroke-width="1" stroke-dasharray="5,5"/>
+      
+      <!-- Four elements at corners -->
+      <g font-size="12" fill="rgba(80,200,120,0.6)">
+        <text x="130" y="115">🜁</text><!-- Air -->
+        <text x="360" y="115">🜂</text><!-- Fire -->
+        <text x="130" y="505">🜄</text><!-- Water -->
+        <text x="360" y="505">🜃</text><!-- Earth -->
+      </g>
+      
+      <!-- The Three Parts of Wisdom -->
+      <g transform="translate(250, 480)">
+        <circle r="8" cx="-40" fill="rgba(255,215,0,0.5)"/>
+        <circle r="8" cx="0" fill="rgba(80,200,120,0.5)"/>
+        <circle r="8" cx="40" fill="rgba(192,192,192,0.5)"/>
+        <text y="25" text-anchor="middle" font-size="5" fill="rgba(80,200,120,0.6)">THREE PARTS OF WISDOM</text>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="decoder">
+    <div class="decoder-title">◆ THE FOURTEEN VERSES (Newton Translation)</div>
+    <div class="decoder-grid">
+      <span class="verse-num">I.</span>
+      <span class="verse-content">Tis true without lying, certain & most true</span>
+      
+      <span class="verse-num">II.</span>
+      <span class="verse-content">That which is below is like that which is above & that which is above is like that which is below</span>
+      
+      <span class="verse-num">III.</span>
+      <span class="verse-content">As all things have been & arose from one by the mediation of one</span>
+      
+      <span class="verse-num">IV.</span>
+      <span class="verse-content">The Sun is its father, the Moon its mother</span>
+      
+      <span class="verse-num">V.</span>
+      <span class="verse-content">The wind hath carried it in its belly, the earth is its nurse</span>
+      
+      <span class="verse-num">VI.</span>
+      <span class="verse-content">The father of all perfection in the whole world is here</span>
+      
+      <span class="verse-num">VII.</span>
+      <span class="verse-content">Its force or power is entire if it be converted into earth</span>
+      
+      <span class="verse-num">VIII.</span>
+      <span class="verse-content">Separate thou the earth from the fire, the subtle from the gross sweetly</span>
+      
+      <span class="verse-num">IX.</span>
+      <span class="verse-content">It ascends from the earth to heaven & descends again to the earth</span>
+      
+      <span class="verse-num">X.</span>
+      <span class="verse-content">By this means you shall have the glory of the whole world</span>
+      
+      <span class="verse-num">XI.</span>
+      <span class="verse-content">Its force is above all force, for it vanquishes every subtle thing</span>
+      
+      <span class="verse-num">XII.</span>
+      <span class="verse-content">So was the world created</span>
+      
+      <span class="verse-num">XIII.</span>
+      <span class="verse-content">Hence I am called Hermes Trismegist, having three parts of the philosophy of the whole world</span>
+      
+      <span class="verse-num">XIV.</span>
+      <span class="verse-content">That which I have said of the operation of the Sun is accomplished & ended</span>
+    </div>
+    
+    <div class="newton-note">
+      "For I possess the three essentials of the philosophy of the universe."<br>
+      — Isaac Newton's translation from his alchemical manuscripts (Keynes MS 28)
+    </div>
+  </div>
+  
+  <div class="encoded-data">
+    <div class="encoded-title">SIGIL SEED</div>
+    EMR01|V1:TRUTH|V2:ABOVBELOW|V3:ONE|V4:SUNMOON|V5:WINDEARTH|V6:PERFECTION|V7:FORCE|V8:SEPARATE|V9:ASCENDDESCEND|V10:GLORY|V11:POWER|V12:CREATED|V13:TRISMEGISTUS|V14:COMPLETE|RGB:50C878|SRC:newton_keynes28
+  </div>
+  
+  <div class="footer">TABULA SMARAGDINA · HERMES TRISMEGISTUS · 8TH C. ARABIC → 12TH C. LATIN → NEWTON 1680s · ENCODED 2024</div>
+</body>
+</html>

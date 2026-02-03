@@ -57,7 +57,8 @@ NEXUS_SCRIPTS_DIR = NEXUS_ROOT / "Scripts" / "Reaper"
 # SERVER INITIALIZATION
 # =============================================================================
 
-mcp = FastMCP("planty_mcp")
+# host="0.0.0.0" allows Docker to connect via host.docker.internal
+mcp = FastMCP("planty_mcp", host="0.0.0.0")
 
 # =============================================================================
 # STARTUP RESOURCE - Auto-exposed context for Claude
@@ -1995,4 +1996,17 @@ async def status() -> str:
 # =============================================================================
 
 if __name__ == "__main__":
-    mcp.run()
+    import argparse
+    parser = argparse.ArgumentParser(description="Planty MCP Server")
+    parser.add_argument("--sse", action="store_true", help="Run in SSE mode for LibreChat")
+    parser.add_argument("--port", type=int, default=8765, help="Port for SSE mode (default: 8765)")
+    args = parser.parse_args()
+
+    if args.sse:
+        import os
+        os.environ["UVICORN_PORT"] = str(args.port)
+        os.environ["PORT"] = str(args.port)
+        print(f"[Planty MCP] Starting in SSE mode on port {args.port}...")
+        mcp.run(transport="sse")
+    else:
+        mcp.run()

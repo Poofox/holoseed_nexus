@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tibetan Book of the Dead Sigil - Bardo Thodol Encoded</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fira+Code:wght@400&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      background: #0d0a15;
+      background-image: 
+        radial-gradient(ellipse at 50% 30%, rgba(128, 0, 128, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 70%, rgba(255, 140, 0, 0.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 70% 70%, rgba(65, 105, 225, 0.06) 0%, transparent 40%);
+      font-family: 'Cinzel', serif;
+      color: #e6b800;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      margin-bottom: 0.3rem;
+      color: #e6b800;
+      text-shadow: 0 0 20px rgba(230, 184, 0, 0.3);
+    }
+    
+    .subtitle {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      opacity: 0.6;
+      margin-bottom: 0.3rem;
+    }
+    
+    .tibetan-script {
+      font-size: 0.9rem;
+      opacity: 0.5;
+      margin-bottom: 1.5rem;
+    }
+    
+    .sigil-container {
+      position: relative;
+      width: 550px;
+      height: 700px;
+    }
+    
+    .sigil-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 30px rgba(230, 184, 0, 0.1));
+    }
+    
+    /* Clear Light animation */
+    .clear-light {
+      animation: clear-light-pulse 6s ease-in-out infinite;
+    }
+    
+    @keyframes clear-light-pulse {
+      0%, 100% { opacity: 0.3; filter: blur(0px); }
+      50% { opacity: 0.8; filter: blur(2px); }
+    }
+    
+    /* Peaceful deities gentle glow */
+    .peaceful-deities {
+      animation: peaceful-pulse 8s ease-in-out infinite;
+    }
+    
+    @keyframes peaceful-pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
+    }
+    
+    /* Wrathful deities intense pulse */
+    .wrathful-deities {
+      animation: wrathful-pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes wrathful-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.9; filter: drop-shadow(0 0 15px rgba(255,0,0,0.4)); }
+    }
+    
+    /* Six realms rotation */
+    .six-realms {
+      transform-origin: 275px 480px;
+      animation: realms-rotate 60s linear infinite;
+    }
+    
+    @keyframes realms-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    /* 49 days counter */
+    .day-marker {
+      animation: day-fade 49s linear infinite;
+    }
+    
+    .decoder {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 15, 30, 0.9);
+      border: 1px solid rgba(230, 184, 0, 0.3);
+      max-width: 650px;
+      font-size: 0.55rem;
+    }
+    
+    .decoder-title {
+      color: #e6b800;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+      font-size: 0.65rem;
+    }
+    
+    .bardo-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 0.3rem 0.8rem;
+      font-family: 'Fira Code', monospace;
+    }
+    
+    .bardo-name { color: #e6b800; }
+    .bardo-desc { opacity: 0.7; font-size: 0.5rem; }
+    .bardo-days { color: #888; font-size: 0.45rem; }
+    .bardo-color { font-size: 0.45rem; color: #806000; }
+    
+    .five-buddhas {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(230,184,0,0.2);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      text-align: center;
+    }
+    
+    .buddha-card {
+      padding: 0.5rem;
+      border-radius: 4px;
+      font-size: 0.45rem;
+    }
+    
+    .encoded-data {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(20, 15, 30, 0.95);
+      border: 1px solid rgba(230, 184, 0, 0.2);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.5rem;
+      color: #806000;
+      max-width: 650px;
+      word-break: break-all;
+    }
+    
+    .encoded-title {
+      color: #e6b800;
+      margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.2em;
+    }
+    
+    .liberation-verse {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: rgba(20, 15, 30, 0.7);
+      border-left: 2px solid rgba(230, 184, 0, 0.4);
+      font-size: 0.5rem;
+      font-style: italic;
+      opacity: 0.8;
+      max-width: 650px;
+    }
+    
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.45rem;
+      letter-spacing: 0.2em;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <h1>BARDO THÖDOL</h1>
+  <div class="subtitle">THE GREAT LIBERATION THROUGH HEARING IN THE INTERMEDIATE STATE</div>
+  <div class="tibetan-script">བར་དོ་ཐོས་གྲོལ</div>
+  
+  <div class="sigil-container">
+    <svg class="sigil-svg" viewBox="0 0 550 700" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="clear-light-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="50%" stop-color="#fffacd"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        
+        <linearGradient id="rainbow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0000ff"/>
+          <stop offset="25%" stop-color="#00ff00"/>
+          <stop offset="50%" stop-color="#ffff00"/>
+          <stop offset="75%" stop-color="#ff0000"/>
+          <stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+        
+        <!-- Five Buddha colors -->
+        <radialGradient id="vairochana-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#e0e0e0"/>
+        </radialGradient>
+        
+        <radialGradient id="akshobhya-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#4169e1"/>
+          <stop offset="100%" stop-color="#1a3a6e"/>
+        </radialGradient>
+        
+        <radialGradient id="ratnasambhava-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffd700"/>
+          <stop offset="100%" stop-color="#b8860b"/>
+        </radialGradient>
+        
+        <radialGradient id="amitabha-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ff4500"/>
+          <stop offset="100%" stop-color="#8b0000"/>
+        </radialGradient>
+        
+        <radialGradient id="amoghasiddhi-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#32cd32"/>
+          <stop offset="100%" stop-color="#006400"/>
+        </radialGradient>
+      </defs>
+      
+      <!-- Mandala border -->
+      <circle cx="275" cy="350" r="300" fill="none" stroke="rgba(230,184,0,0.2)" stroke-width="2"/>
+      <circle cx="275" cy="350" r="280" fill="none" stroke="rgba(230,184,0,0.1)" stroke-width="1"/>
+      
+      <!-- FIRST BARDO: CHIKHAI - Moment of Death / Clear Light -->
+      <g class="clear-light" transform="translate(275, 100)">
+        <circle r="60" fill="url(#clear-light-grad)" opacity="0.5"/>
+        <circle r="40" fill="rgba(255,255,255,0.3)"/>
+        <circle r="20" fill="rgba(255,255,255,0.5)"/>
+        <text y="5" text-anchor="middle" font-size="10" fill="#333">ༀ</text>
+        <text y="85" text-anchor="middle" font-size="7" fill="#e6b800">CHIKHAI BARDO</text>
+        <text y="97" text-anchor="middle" font-size="5" fill="rgba(230,184,0,0.6)">MOMENT OF DEATH · CLEAR LIGHT</text>
+      </g>
+      
+      <!-- SECOND BARDO: CHÖNYID - Reality / Peaceful & Wrathful Deities -->
+      <g transform="translate(275, 280)">
+        <!-- Peaceful Deities - Days 1-7 -->
+        <g class="peaceful-deities" transform="translate(-100, 0)">
+          <circle r="45" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+          <circle r="35" fill="rgba(255,255,255,0.1)"/>
+          
+          <!-- Five Dhyani Buddhas in miniature -->
+          <circle cx="0" cy="-25" r="8" fill="url(#vairochana-grad)" opacity="0.8"/>
+          <circle cx="-20" cy="0" r="8" fill="url(#akshobhya-grad)" opacity="0.8"/>
+          <circle cx="20" cy="0" r="8" fill="url(#ratnasambhava-grad)" opacity="0.8"/>
+          <circle cx="-12" cy="20" r="8" fill="url(#amitabha-grad)" opacity="0.8"/>
+          <circle cx="12" cy="20" r="8" fill="url(#amoghasiddhi-grad)" opacity="0.8"/>
+          
+          <text y="65" text-anchor="middle" font-size="6" fill="#e6b800">PEACEFUL DEITIES</text>
+          <text y="77" text-anchor="middle" font-size="4" fill="rgba(230,184,0,0.5)">DAYS 1-7</text>
+        </g>
+        
+        <!-- Wrathful Deities - Days 8-14 -->
+        <g class="wrathful-deities" transform="translate(100, 0)">
+          <circle r="45" fill="none" stroke="rgba(255,0,0,0.4)" stroke-width="2"/>
+          <circle r="35" fill="rgba(139,0,0,0.2)"/>
+          
+          <!-- Wrathful heruka symbols -->
+          <text y="5" text-anchor="middle" font-size="24" fill="rgba(255,0,0,0.7)">☠</text>
+          <text x="-20" y="-15" font-size="10" fill="rgba(255,100,0,0.6)">🔥</text>
+          <text x="20" y="-15" font-size="10" fill="rgba(255,100,0,0.6)">🔥</text>
+          
+          <text y="65" text-anchor="middle" font-size="6" fill="#e6b800">WRATHFUL DEITIES</text>
+          <text y="77" text-anchor="middle" font-size="4" fill="rgba(230,184,0,0.5)">DAYS 8-14</text>
+        </g>
+        
+        <!-- Central recognition point -->
+        <circle r="15" fill="rgba(230,184,0,0.3)" stroke="#e6b800" stroke-width="1"/>
+        <text y="4" text-anchor="middle" font-size="8" fill="#e6b800">認</text>
+        
+        <text y="110" text-anchor="middle" font-size="7" fill="#e6b800">CHÖNYID BARDO</text>
+        <text y="122" text-anchor="middle" font-size="5" fill="rgba(230,184,0,0.6)">EXPERIENCING REALITY · DAYS 1-14</text>
+      </g>
+      
+      <!-- THIRD BARDO: SIDPA - Rebirth / Six Realms -->
+      <g transform="translate(275, 480)">
+        <text y="-80" text-anchor="middle" font-size="7" fill="#e6b800">SIDPA BARDO</text>
+        <text y="-68" text-anchor="middle" font-size="5" fill="rgba(230,184,0,0.6)">SEEKING REBIRTH · DAYS 15-49</text>
+        
+        <!-- Six Realms Wheel -->
+        <g class="six-realms">
+          <circle r="70" fill="none" stroke="rgba(230,184,0,0.3)" stroke-width="1"/>
+          
+          <!-- Deva realm (top) - white -->
+          <g transform="translate(0, -55)">
+            <circle r="12" fill="rgba(255,255,255,0.4)" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+            <text y="4" text-anchor="middle" font-size="6" fill="#fff">天</text>
+          </g>
+          
+          <!-- Asura realm (upper right) - green -->
+          <g transform="translate(48, -28)">
+            <circle r="12" fill="rgba(0,128,0,0.4)" stroke="rgba(0,128,0,0.6)" stroke-width="1"/>
+            <text y="4" text-anchor="middle" font-size="6" fill="#0a0">修</text>
+          </g>
+          
+          <!-- Human realm (lower right) - yellow -->
+          <g transform="translate(48, 28)">
+            <circle r="12" fill="rgba(255,215,0,0.4)" stroke="rgba(255,215,0,0.6)" stroke-width="1"/>
+            <text y="4" text-anchor="middle" font-size="6" fill="#b80">人</text>
+          </g>
+          
+          <!-- Animal realm (bottom) - blue -->
+          <g transform="translate(0, 55)">
+            <circle r="12" fill="rgba(0,0,139,0.4)" stroke="rgba(0,0,139,0.6)" stroke-width="1"/>
+            <text y="4" text-anchor="middle" font-size="6" fill="#00f">畜</text>
+          </g>
+          
+          <!-- Hungry ghost realm (lower left) - red -->
+          <g transform="translate(-48, 28)">
+            <circle r="12" fill="rgba(255,0,0,0.3)" stroke="rgba(255,0,0,0.5)" stroke-width="1"/>
+            <text y="4" text-anchor="middle" font-size="6" fill="#f00">餓</text>
+          </g>
+          
+          <!-- Hell realm (upper left) - black -->
+          <g transform="translate(-48, -28)">
+            <circle r="12" fill="rgba(20,20,20,0.6)" stroke="rgba(50,50,50,0.8)" stroke-width="1"/>
+            <text y="4" text-anchor="middle" font-size="6" fill="#666">獄</text>
+          </g>
+        </g>
+        
+        <!-- Center - Liberation -->
+        <circle r="20" fill="rgba(230,184,0,0.2)" stroke="#e6b800" stroke-width="2"/>
+        <text y="5" text-anchor="middle" font-size="10" fill="#e6b800">解脱</text>
+      </g>
+      
+      <!-- 49 Days marker -->
+      <g transform="translate(275, 620)">
+        <rect x="-100" y="-15" width="200" height="30" rx="5" 
+              fill="none" stroke="rgba(230,184,0,0.3)" stroke-width="1"/>
+        <text y="5" text-anchor="middle" font-size="8" fill="#e6b800">49 DAYS · བཞི་བཅུ་ཞག་དགུ</text>
+      </g>
+      
+      <!-- Padmasambhava attribution -->
+      <text x="275" y="670" text-anchor="middle" font-size="5" fill="rgba(230,184,0,0.4)">
+        REVEALED BY KARMA LINGPA · COMPOSED BY PADMASAMBHAVA
+      </text>
+      
+      <!-- Connecting flow lines -->
+      <g stroke="rgba(230,184,0,0.2)" stroke-width="1" fill="none">
+        <path d="M 275 160 Q 275 200 275 220"/>
+        <path d="M 275 340 Q 275 380 275 400"/>
+      </g>
+      
+      <!-- Side annotations -->
+      <g font-size="5" fill="rgba(230,184,0,0.4)" transform="rotate(-90)">
+        <text x="-350" y="80">DEATH → RECOGNITION → LIBERATION OR REBIRTH</text>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="decoder">
+    <div class="decoder-title">◆ THE THREE BARDOS ENCODED</div>
+    <div class="bardo-grid">
+      <span class="bardo-name">CHIKHAI</span>
+      <span class="bardo-desc">Moment of Death · Primary Clear Light · Liberation possible</span>
+      <span class="bardo-days">Instant</span>
+      <span class="bardo-color">RGB(255,255,255)</span>
+      
+      <span class="bardo-name">CHÖNYID</span>
+      <span class="bardo-desc">Experiencing Reality · Peaceful then Wrathful Deities appear</span>
+      <span class="bardo-days">Days 1-14</span>
+      <span class="bardo-color">RGB(230,184,0)</span>
+      
+      <span class="bardo-name">SIDPA</span>
+      <span class="bardo-desc">Seeking Rebirth · Six Realms · Karmic visions · Womb entrance</span>
+      <span class="bardo-days">Days 15-49</span>
+      <span class="bardo-color">RGB(128,0,128)</span>
+    </div>
+    
+    <div class="five-buddhas">
+      <div class="buddha-card" style="background: rgba(255,255,255,0.1);">
+        <strong style="color:#fff;">VAIROCHANA</strong><br>
+        <span style="opacity:0.7;">White · Center</span><br>
+        <span style="color:#aaa;">Day 1</span>
+      </div>
+      <div class="buddha-card" style="background: rgba(65,105,225,0.2);">
+        <strong style="color:#4169e1;">AKSHOBHYA</strong><br>
+        <span style="opacity:0.7;">Blue · East</span><br>
+        <span style="color:#aaa;">Day 2</span>
+      </div>
+      <div class="buddha-card" style="background: rgba(255,215,0,0.2);">
+        <strong style="color:#ffd700;">RATNASAMBHAVA</strong><br>
+        <span style="opacity:0.7;">Yellow · South</span><br>
+        <span style="color:#aaa;">Day 3</span>
+      </div>
+      <div class="buddha-card" style="background: rgba(255,69,0,0.2);">
+        <strong style="color:#ff4500;">AMITĀBHA</strong><br>
+        <span style="opacity:0.7;">Red · West</span><br>
+        <span style="color:#aaa;">Day 4</span>
+      </div>
+      <div class="buddha-card" style="background: rgba(50,205,50,0.2);">
+        <strong style="color:#32cd32;">AMOGHASIDDHI</strong><br>
+        <span style="opacity:0.7;">Green · North</span><br>
+        <span style="color:#aaa;">Day 5</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="liberation-verse">
+    "O nobly-born, listen. Now thou art experiencing the Radiance of the Clear Light of Pure Reality.
+    Recognize it. Thine own intellect, which is now voidness, yet not to be regarded as of the voidness of nothingness,
+    but as being the intellect itself, unobstructed, shining, thrilling, and blissful, is the very consciousness,
+    the All-good Buddha."
+    <br><br>— Instructions to the dying, Chikhai Bardo
+  </div>
+  
+  <div class="encoded-data">
+    <div class="encoded-title">SIGIL SEED</div>
+    TIBET01|B1_CHIKHAI:FFFFFF|B2_CHONYID:E6B800|B3_SIDPA:800080|PEACEFUL:D1-7|WRATHFUL:D8-14|REBIRTH:D15-49|VAIROCHANA:FFFFFF|AKSHOBHYA:4169E1|RATNASAMBHAVA:FFD700|AMITABHA:FF4500|AMOGHASIDDHI:32CD32|REALMS:6|DAYS:49|SRC:evans_wentz_1927
+  </div>
+  
+  <div class="footer">བར་དོ་ཐོས་གྲོལ · BARDO THÖDOL · PADMASAMBHAVA 8TH C. · KARMA LINGPA 14TH C. · EVANS-WENTZ 1927 · ENCODED 2024</div>
+</body>
+</html>

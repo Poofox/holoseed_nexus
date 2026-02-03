@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <!-- Aged stained glass gradients - light from upper left, shadow to black -->
+
+    <!-- Dusty ruby - top triangle -->
+    <linearGradient id="ruby" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b3a4a"/>
+      <stop offset="40%" style="stop-color:#5c2633"/>
+      <stop offset="100%" style="stop-color:#0a0506"/>
+    </linearGradient>
+
+    <!-- Aged amber - upper right -->
+    <linearGradient id="amber" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" style="stop-color:#8b6914"/>
+      <stop offset="45%" style="stop-color:#4a3810"/>
+      <stop offset="100%" style="stop-color:#0a0804"/>
+    </linearGradient>
+
+    <!-- Faded teal - lower right -->
+    <linearGradient id="teal" x1="0%" y1="20%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a5a5a"/>
+      <stop offset="40%" style="stop-color:#1a3535"/>
+      <stop offset="100%" style="stop-color:#050a0a"/>
+    </linearGradient>
+
+    <!-- Weathered violet - bottom -->
+    <linearGradient id="violet" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a3a5c"/>
+      <stop offset="45%" style="stop-color:#2a2235"/>
+      <stop offset="100%" style="stop-color:#06050a"/>
+    </linearGradient>
+
+    <!-- Dusty olive - lower left -->
+    <linearGradient id="olive" x1="20%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5a5a2a"/>
+      <stop offset="40%" style="stop-color:#35351a"/>
+      <stop offset="100%" style="stop-color:#0a0a05"/>
+    </linearGradient>
+
+    <!-- Aged copper - upper left -->
+    <linearGradient id="copper" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" style="stop-color:#6b4a3a"/>
+      <stop offset="45%" style="stop-color:#3a2820"/>
+      <stop offset="100%" style="stop-color:#0a0605"/>
+    </linearGradient>
+
+    <!-- Center - dim gold -->
+    <radialGradient id="centerglow" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#6b5a28"/>
+      <stop offset="60%" style="stop-color:#3a3018"/>
+      <stop offset="100%" style="stop-color:#0a0a05"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#0a0a0a"/>
+
+  <!-- Outer circle (the round frame) -->
+  <circle cx="400" cy="400" r="350" fill="none" stroke="#1a1a1a" stroke-width="20"/>
+  <circle cx="400" cy="400" r="340" fill="none" stroke="#0a0a0a" stroke-width="2"/>
+
+  <!-- The six outer triangular cells of the hexagram -->
+
+  <!-- Top point -->
+  <polygon points="400,70 306,220 494,220"
+           fill="url(#ruby)" stroke="#0a0a0a" stroke-width="8"/>
+
+  <!-- Upper right -->
+  <polygon points="494,220 648,290 564,420"
+           fill="url(#amber)" stroke="#0a0a0a" stroke-width="8"/>
+
+  <!-- Lower right -->
+  <polygon points="564,420 648,510 494,580"
+           fill="url(#teal)" stroke="#0a0a0a" stroke-width="8"/>
+
+  <!-- Bottom point -->
+  <polygon points="494,580 400,730 306,580"
+           fill="url(#violet)" stroke="#0a0a0a" stroke-width="8"/>
+
+  <!-- Lower left -->
+  <polygon points="306,580 152,510 236,420"
+           fill="url(#olive)" stroke="#0a0a0a" stroke-width="8"/>
+
+  <!-- Upper left -->
+  <polygon points="236,420 152,290 306,220"
+           fill="url(#copper)" stroke="#0a0a0a" stroke-width="8"/>
+
+  <!-- Center hexagon -->
+  <polygon points="306,220 494,220 564,420 494,580 306,580 236,420"
+           fill="url(#centerglow)" stroke="#0a0a0a" stroke-width="8"/>
+
+  <!-- Inner leading lines (the triangle edges visible inside) -->
+  <line x1="306" y1="220" x2="564" y2="420" stroke="#0a0a0a" stroke-width="4"/>
+  <line x1="306" y1="220" x2="494" y2="580" stroke="#0a0a0a" stroke-width="4"/>
+  <line x1="494" y1="220" x2="236" y2="420" stroke="#0a0a0a" stroke-width="4"/>
+  <line x1="494" y1="220" x2="306" y2="580" stroke="#0a0a0a" stroke-width="4"/>
+  <line x1="236" y1="420" x2="494" y2="580" stroke="#0a0a0a" stroke-width="4"/>
+  <line x1="564" y1="420" x2="306" y2="580" stroke="#0a0a0a" stroke-width="4"/>
+
+  <!-- Very subtle outer glow to simulate light through glass -->
+  <circle cx="400" cy="400" r="355" fill="none" stroke="#2a2010" stroke-width="1" opacity="0.3"/>
+
+</svg>
