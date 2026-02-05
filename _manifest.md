@@ -58,7 +58,7 @@ AI starter kit. Everything needed to wake a sovereign.
 - **Bots/** — Telegram bots, daemon scripts
 - **Training/** — Fine-tuning datasets (JSONL format)
 
-### 2_Gnosis/ `[Kadence/Kawyvern]`
+### 2_Library/ `[Kadence/Kawyvern]`
 Wisdom repository. Knowledge that persists.
 - **Protocols/** — Operating procedures, hygiene rules, glossary
 - **Library/** — Esoteric texts, PDFs, deep references
