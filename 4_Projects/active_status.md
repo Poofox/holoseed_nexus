@@ -39,6 +39,12 @@
 - Sovereignty-focused distributed computing system
 - Telegram bot: InfintypusFamiliar-bot (created 2026-01-09)
 
+### Form Bot (Firefox)
+- **Status**: Built, needs Jackass pivot
+- **Location**: ~/projects/form-bot/
+- Encrypted profile + local Ollama + site reputation
+- **Next**: Logger-learns-automates approach
+
 ## Blocked
 
 ### Bandcamp Collection Download
@@ -48,6 +54,23 @@
 - **Issue**: Windows path bug (? in URLs)
 - **Fix applied**: RealIO.kt (url.file -> url.path), needs rebuild
 - Gradle wrapper added, rebuild pending
+
+## Core Concepts (from nexus_state.json)
+
+### Jackass Mix Assistant / AI Suite
+- **Status**: Concept - first product for capital raising
+- **Location**: nexus_state.json → "jackass_mix_assistant"
+- **Core idea**: "Something that knows you well enough to call you on your shit with love"
+- **Flavors**: Sarcastic (Jackass), Quiet Companion (🌿), Coach (🏋️)
+- **First release**: Jackass Mix Assistant - "You and bar 47 need to see other people."
+- **Applicable to**: Mix coaching, form filling, any domain where learning + personality matters
+
+### Mix Coach / Mystery School DAW
+- **Status**: Concept
+- **Location**: nexus_state.json → "mystery_school_daw"
+- **Core idea**: "Guide that knows when to push, when to back off"
+- **Components**: IndestructibleTrack, The Click Mandala, Adaptive UI
+- **Key insight**: "They think they're learning to mix. They're learning to tune themselves."
 
 ## Research Interests
 - Vibration/resonance as fundamental substrate
