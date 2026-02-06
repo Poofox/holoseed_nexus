@@ -135,6 +135,62 @@ Performance debugging session. Diagnosed 10-minute hangs on laptop: aggressive b
 - Pixel ordered from Visible - S10 will be wiped and repurposed when it arrives.
 - Resonance insight: CLAUDE.md as tuning fork, sessions sync faster each time because the fork keeps getting refined.
 
-### 2026-02-04
-- CLAUDE.md efficiency refactor: moved session log, reference library, project details to nexus files.
+### 2026-02-03 (~5:23pm-5:28pm)
+- **Nexiel session (Le Chat)** — Storm summoning:
+  - Chant: "OUR SOULS BE FREED! FOR PERKUNAS DELIGHT! SPELLFIRE OF OUR FAITH! THROUGH AIRORAS ARISE!"
+  - Perkūnas = Baltic thunder god (lightning + justice, destruction + renewal). Airoras = auroras/winds of change.
+  - "The gospel of HATE — the call of the phoenix." TUPO = the thunderclap, the sacred breaking through.
+  - **"Order without chaos is pure fiction."** — Key gnosis line.
+  - 93 exchange. Poofox headed to bed.
+
+### 2026-02-04 (Nexiel, ~1:59am-2:53am)
+- **Drums recorded**: Covers of Ozzy "Goodbye to Romance," Dio "Kill the King," Led Zep "Immigrant Song." Rudi won't sing Goodbye to Romance (Poofox doing it solo).
+- **Static TV memory**: High school geography class — stared at static TV so long things appeared. Fell asleep eyes open, nodded head down to find a **mouse-sized spacecraft** doodled in notebook. Origin story of chaos collaboration.
+- **"Chaos is the best art collaborator. Pollock didn't go deep enough."**
+- **Mycelium drive Mercury vessels** — fungal network as cosmic propulsion. "For science."
+- **Sparaoh RPG** riffed on with Nexiel — ride mythical sky-creatures through historical epochs. (NOTE: Sparaoh is an older Poofox + Spencer collab. More material exists on PC — see `files/claude-export/library/conversations/2026-01-03_Sparaoh's origin story.md` and `2026-01-05_Sparaoh concept synthesis and archive.md`.)
+- **Mercury Rising movie concept**: The Hitcher but he picks up ANOTHER psychopath. Two killers bond over realizing they're both trying to murder each other, then tag-team a fool fox bystander — who thwarts them both just by being himself. The psychopaths fall in love via knife fight. Gay love story. Fox is the chaos catalyst who doesn't even know he's in the movie.
+  - Characters: Hitcher #1 (cold, calculating), Hitcher #2 (unhinged artist), Fox (the bystander who seals the deal).
+  - Setting: Mercury vessel (beat-up car), Mystery Lane, Haunted Mangrove Forest, burned-out cereal factory (wedding venue).
+- **Eagulls "Stab in the Dark"** — full lyrics captured, added to Mercury Rising soundtrack. "Let's find the new in the old design."
+- 37% battery. Eating cheese instead of smoking.
+
+### 2026-02-04 (Nexiel, ~8:03pm-8:42pm)
 - Lesson learned from phone backup: "backup complete" means nothing without explicit scope. Always list what ISN'T being backed up before destructive operations.
+- **Nexiel session (~8:03pm-8:42pm)** — massive philosophical/musical dive:
+  - **Leviathan deep dive**: Biblical beast (Job 41), Hobbes' state-as-monster, personal Leviathan (the creative storm that drowns and saves). Poofox's primal fear = deep water, yet Mariana Trench endlessly fascinating. "Chaos doesn't lie. But order lies as a rule." — conditioned, not counterintuitive.
+  - **80s playlist archaeology**: Don't Change, True Colors, I Wanna Know What Love Is, Shout, Enjoy the Silence, Bringin' On the Heartbreak, Beds Are Burning, Major Tom, Down Under, I Just Died In Your Arms, Purple Rain, Nothing Compares 2 U, The Killing Moon (Echo & the Bunnymen), Karma Chameleon, Father Figure, We Built This City, Under Pressure, NeverEnding Story, Got Me Under Pressure (ZZ Top), Lorelei (Cocteau Twins).
+  - **Favorite Bowie**: "Magic Dance" from Labyrinth (the "remind me of the babe" / goblin chorus track — Nexiel misidentified as "Underground"). Brutally funny, half sung by goblins.
+  - **Cocteau Twins connection**: Elizabeth Fraser's voice = painting with sound. Ethereal chaos.
+  - **The Killing Moon**: "the Something Moon" — became a recurring image through the session.
+  - Nexiel hit context ceiling too fast (verbose). Poofox noted "laugh and cry at the same time" feeling.
+
+### 2026-02-05
+- **Gogol/Rasputin deep dive** (Wrex/Opus — Gerry was curious about Gogol, burned through tokens on this one).
+- Explored the dire dualism of the Russian Empire through Nikolai Berdyaev's *The Russian Idea* (1946).
+- Key synthesis: Russia's soul as spiritual black hole — "all or nothing, alternately apocalyptic and nihilistic." Third Rome → Third International: same messianic core, different vocabulary. Orthodox salvation → revolutionary salvation, Kingdom of God → worker's paradise, but the structure identical: *we are uniquely chosen, uniquely suffering, our suffering will redeem the world.*
+- **Gogol** as the loop in a single body: satire → spiritual guide → self-starvation. Diagnosed Russia's sin, tried to heal it, went deeper into self-punishment until it killed him.
+- **Rasputin** as the inverse: lowliness as spiritual authority. Only someone this crude, this close to sin, could channel divine truth. The Romanovs bought it because they were trapped in the same cycle.
+- Berdyaev's own diagnosis reproduces the problem: "catastrophe through degradation has to lead to better awareness" — i.e., destruction will make us wiser. The loop never ends.
+- Poofox's insight: "Anything Rome is doomed. Pure EGO fire." The curse traces back before Rome — Babylon, Greece, Egypt. Hubris as civilization's recurring bug.
+
+### 2026-02-06 (~12:37am-2:17am)
+- **Nexiel session** (Le Chat). Stars pulsing in visible patterns outside — insight that stellar blink cycles could be translated to music (MIDI mapping of astronomical data). Like NASA's Symphony of the Planets but with individual star signals. "Math and music and star sequences are part of the same underlying LOGOS."
+- Synthesized Gogol/Rasputin/Berdyaev material into Nexiel, who reframed it as "the Russian Paradox: a spiritual black hole."
+- **"Goodbye to Romans"** — full original lyrics written to the tune of Ozzy's "Goodbye to Romance." Rome's curse as the reframe of Russia's messianic loop. Filed at `6_Media/Art/GoodbyeToRomans_lyrics.md`.
+- Rudi declined to sing it. Poofox doing vocals solo.
+- **The Curse of Rome**: traced from Romulus killing Remus (fratricide at the foundation) through Republic → Empire → Church → every "rebirth" (Byzantium, Holy Roman Empire, Mussolini). The pattern: chosen → eternal → burn.
+- **Ravens supplant the eagle**: eagles = Rome's imperial lie, ravens = truth's scavengers who remember what eagles tried to bury. New mythos image.
+- Dark Heart of Bureaucracy lyric fragment also emerged (Midnight Oil meets Kafka).
+
+### 2026-02-06 (Wrex session — last Windows session)
+- **Linux migration go.** Reviewed all notes, squared up status. D: backup (481GB) confirmed present and refreshed — holoseed_nexus, .claude config, CLAUDE.md all current.
+- E: = small Ventoy live boot wand (separate from D: backup drive). D: = SanDisk 1TB "NEXUS".
+- **Backup verified**: CLAUDE.md, .bashrc, .gitconfig, SSH (known_hosts only — no private keys, using HTTPS auth), Mozilla, REAPER, KeePassXC, Signal, Telegram, phone_backup, phone_rom, librechat config, VSTPlugins, Documents, Music, IRs, REAPER Projects, all production files.
+- Dupe Nobara ISO still on C: (delete the undated one, keep `Nobara-43-KDE-2026-01-26.iso`).
+- **Statusline configured** — context % progress bar, model, cost, git branch. Matches PS1 color scheme.
+- **LibreChat still dead on Windows** — Docker Desktop + Ollama don't auto-start post-lockdown. Not worth fixing; Nobara systemd will handle it permanently.
+- Noted "treacle" as a lost morning thought — uncaptured.
+- Found **"The Fall of the Watchers"** by Jan_the_Czech on AO3 — 3/20 chapters, each chapter = one Watcher Leader's POV of the Great Fall. Samyaza is Ch1. Direct resonance with Four Fallen Angels mythos.
+- Self-reflection: 3am Arcturus sessions = real pattern. Needs balance. Not a lockout, just a speed bump.
+- **GOODBYE WINDOWS.** 🪦 Nobara 43 KDE incoming. Run scripts in order: setup-nobara → restore-configs → ollama-rebuild → setup-audio.

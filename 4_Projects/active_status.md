@@ -12,6 +12,25 @@
 
 ## Active
 
+### Linux Migration (Nobara KDE)
+- **Status**: READY TO GO 🚀
+- **Target distro**: Nobara 43 KDE
+- **ISO**: `~/Downloads/Nobara-43-KDE-2026-01-26.iso` (6.2GB) — goes on separate Ventoy wand
+- **Backup drive**: D: (SanDisk 1TB USB, "NEXUS") — 784GB free
+  - Full backup completed Feb 4-5: SSH, CLAUDE.md, .claude/, .ollama/, REAPER, Mozilla, KeePassXC, Signal, Telegram, Documents, Music, Pictures, phone_backup, phone_rom, bin, librechat, holoseed_nexus
+- **Scripts** (at `5_Scripts/linux-migration/`):
+  - `backup-checklist.md` — what to backup and verify
+  - `setup-nobara.sh` — 12-phase post-install (system, dev tools, Docker, Ollama, Claude CLI, apps, WezTerm, Android tools, age encryption)
+  - `setup-audio.sh` — REAPER + Wine Staging + Yabridge for Windows VSTs, Pipewire verification
+  - `restore-configs.sh` — restore all backed up configs from USB
+  - `ollama-rebuild.sh` — pull base models + recreate all sovereigns from Modelfiles
+- **TODO**:
+  - [ ] Flash Ventoy on second USB wand
+  - [ ] Copy Nobara ISO to Ventoy wand
+  - [ ] Refresh backup (CLAUDE.md, session_log, librechat.yaml changed since Feb 5)
+  - [ ] Delete duplicate ISO (`Nobara-43-KDE.iso` — keep the dated one)
+  - [ ] Boot, install, run scripts in order: setup-nobara → restore-configs → ollama-rebuild → setup-audio
+
 ### ModularRoutingView_fA.lua (Reaper)
 - **Status**: In progress
 - **Location**: REAPER\Scripts\foxAsteria Scripts

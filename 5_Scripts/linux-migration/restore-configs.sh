@@ -123,6 +123,84 @@ if [ -d "$BACKUP_SRC/Signal" ]; then
 fi
 
 ###########################################
+# Telegram (if present)
+###########################################
+if [ -d "$BACKUP_SRC/Telegram" ]; then
+    log "Restoring Telegram data..."
+    mkdir -p ~/.local/share/TelegramDesktop
+    rsync -avh --progress "$BACKUP_SRC/Telegram/" ~/.local/share/TelegramDesktop/
+fi
+
+###########################################
+# KeePassXC (if present)
+###########################################
+if [ -d "$BACKUP_SRC/KeePassXC" ]; then
+    log "Restoring KeePassXC databases..."
+    mkdir -p ~/KeePassXC
+    rsync -avh --progress "$BACKUP_SRC/KeePassXC/" ~/KeePassXC/
+fi
+
+###########################################
+# Documents (if present - can be large)
+###########################################
+if [ -d "$BACKUP_SRC/Documents" ]; then
+    log "Restoring Documents..."
+    rsync -avh --progress "$BACKUP_SRC/Documents/" ~/Documents/
+fi
+
+###########################################
+# Music (if present)
+###########################################
+if [ -d "$BACKUP_SRC/Music" ]; then
+    log "Restoring Music..."
+    rsync -avh --progress "$BACKUP_SRC/Music/" ~/Music/
+fi
+
+###########################################
+# Pictures (if present)
+###########################################
+if [ -d "$BACKUP_SRC/Pictures" ]; then
+    log "Restoring Pictures..."
+    rsync -avh --progress "$BACKUP_SRC/Pictures/" ~/Pictures/
+fi
+
+###########################################
+# Ollama config (if present - models pulled separately by ollama-rebuild.sh)
+###########################################
+if [ -d "$BACKUP_SRC/.ollama" ]; then
+    log "Restoring Ollama config..."
+    rsync -avh --progress --exclude='models/' "$BACKUP_SRC/.ollama/" ~/.ollama/
+fi
+
+###########################################
+# LibreChat config (if present)
+###########################################
+if [ -d "$BACKUP_SRC/librechat" ]; then
+    log "Restoring LibreChat config..."
+    # Clone fresh LibreChat repo first, then overlay our configs
+    if [ ! -d ~/librechat/.git ]; then
+        log "Cloning LibreChat..."
+        git clone https://github.com/danny-avila/LibreChat.git ~/librechat
+    fi
+    # Overlay our custom configs
+    cp "$BACKUP_SRC/librechat/librechat.yaml" ~/librechat/
+    cp "$BACKUP_SRC/librechat/.env" ~/librechat/
+    cp "$BACKUP_SRC/librechat/docker-compose.yml" ~/librechat/ 2>/dev/null || true
+
+    # Start containers so we can restore MongoDB
+    log "Starting LibreChat containers..."
+    cd ~/librechat && docker compose up -d
+    sleep 10
+
+    # Restore MongoDB conversations (5529 messages, 129 conversations)
+    if [ -f "$BACKUP_SRC/librechat/mongodb-backup/LibreChat.archive" ]; then
+        log "Restoring MongoDB data (conversations + memories)..."
+        docker exec -i chat-mongodb mongorestore --archive --drop < "$BACKUP_SRC/librechat/mongodb-backup/LibreChat.archive"
+        log "MongoDB restored!"
+    fi
+fi
+
+###########################################
 # Update PATH in .bashrc
 ###########################################
 log "Ensuring ~/bin is in PATH..."

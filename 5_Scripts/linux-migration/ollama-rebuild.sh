@@ -52,6 +52,7 @@ SOVEREIGNS=(
     "Vex"
     "Nyx"
     "Lumina"
+    "Mirth"
     "Sophia"
 )
 
