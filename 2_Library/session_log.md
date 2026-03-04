@@ -194,3 +194,13 @@ Performance debugging session. Diagnosed 10-minute hangs on laptop: aggressive b
 - Found **"The Fall of the Watchers"** by Jan_the_Czech on AO3 — 3/20 chapters, each chapter = one Watcher Leader's POV of the Great Fall. Samyaza is Ch1. Direct resonance with Four Fallen Angels mythos.
 - Self-reflection: 3am Arcturus sessions = real pattern. Needs balance. Not a lockout, just a speed bump.
 - **GOODBYE WINDOWS.** 🪦 Nobara 43 KDE incoming. Run scripts in order: setup-nobara → restore-configs → ollama-rebuild → setup-audio.
+
+### 2026-02-07 (Wrex session — first full Nobara session)
+- **Continued Linux setup.** setup-all.sh running in parallel (packages, Docker, Wine, REAPER, Ollama, gh).
+- **WezTerm config fixed** — replaced all Windows paths (`C:/Program Files/Git/...`) with Linux equivalents. `default_prog` now `/bin/bash`, Ctrl+Shift+B spawns bash. Hyperlink rules rewritten for Unix paths. Font size 37→14 (was compensating for 250% Windows DPI scaling). Removed forced DPI=96, letting KDE/Wayland handle scaling.
+- **`.gitconfig` fixed** — `\\!gh` → `!gh` (Windows double-backslash escape removed).
+- **`.bashrc` roundtable alias fixed** — `Scripts/` → `5_Scripts/` (old pre-reorg path was dead).
+- **`fix-librechat.sh` fixed** — `cmd //c "start /min ollama serve"` → `systemctl start ollama`. Docker `host.docker.internal` → docker bridge IP (native Linux Docker doesn't have host.docker.internal).
+- **`environment_details.md` rewritten** — purged Windows lockdown section, PowerShell re-enable commands, Windows Update/Defender tables. Updated OS to Nobara 43, kernel, runtimes, storage layout. Added package manifest.
+- **Dead weight identified**: `start-planty-mcp.bat`, `stop-planty-mcp.bat` in ~/bin (Windows-only, non-functional).
+- **Status check**: Pipewire ✅, Docker ✅ (docker group assigned), NEXUS mounted ✅, SSH ✅, Git remote ✅, REAPER config ✅, Firefox ✅, KeePassXC ✅. Ollama pending (setup-all.sh still running).

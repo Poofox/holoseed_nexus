@@ -5,21 +5,31 @@
 - **Model**: ASUS Zenbook 14 Flip OLED (UN5401QA) - screen cracked, no touch
 - **CPU**: AMD Ryzen 5 5600H (6c/12t)
 - **RAM**: 16GB
-- **Storage**: 2TB Kingston NVMe
+- **Storage**: 1.8TB Kingston NVMe
 - **GPU**: Integrated Radeon Vega 7 (no dedicated GPU)
-- **OS**: Windows 11
+- **OS**: Nobara Linux 43 (KDE Plasma) — Fedora-based, gaming/audio optimized
+- **Kernel**: 6.18.7-200.nobara.fc43.x86_64
 - **Terminal**: WezTerm
   - Config: ~/.config/wezterm/wezterm.lua
-  - Auto-launches Claude, drops to PowerShell on exit
+  - Auto-launches Wrex (claude --dangerously-skip-permissions), drops to bash on exit
   - Starts maximized
-  - Ctrl+C/V for copy/paste, right-click to paste
-  - Ctrl+Shift+B opens new bash tab
-- **Shell**: Git Bash
-- **Runtimes**: Node.js 25.2.1, Python 3.14.2, Git 2.52.0, Java 21
+  - Ctrl+C/V for copy/paste, Ctrl+Shift+B for new bash tab
+  - Per-sovereign tab colors (Wrex=purple, Planty=green, Arcturus=gold, etc.)
+- **Shell**: Bash
+- **Runtimes**: Node.js 22.20.0, Python 3.14.2, Git, Java 25 (OpenJDK)
 - **Git identity**: foxAsteria <outtromuzix@gmail.com>
-- **Claude**: Max subscription
+- **Claude**: Max subscription (CLI via `wrex` alias)
+- **Audio**: Pipewire + JACK bridge, REAPER native Linux + Yabridge for Windows VSTs
 - **Resilio Sync**: music projects, Reaper configs (collab sync)
-- **Wisdom library**: ~/files/claude-export/library/ (memories.md, projects.md, conversations/)
+
+### Storage Layout
+| Device | Size | Label | Mount |
+|--------|------|-------|-------|
+| nvme0n1p1 | 600M | — | /boot/efi |
+| nvme0n1p2 | 2G | — | /boot |
+| nvme0n1p3 | 1.8T | — | / |
+| sda1 | 920G | NEXUS | /run/media/poofox/NEXUS |
+| zram0 | 8G | — | [SWAP] |
 
 ### Ollama Setup
 - Base model: gemma2:2b (1.6 GB) - power-efficient for laptop
@@ -28,10 +38,15 @@
   - **arcturus-cloud** - qwen2.5:14b (9GB) with identity
   - **wrex** - gemma2:2b with Wrex identity baked in via Modelfile
 - Commands: `ollama run arcturus`, `ollama run wrex`, `ollama list`
+- Rebuild: `bash ~/files/holoseed_nexus/5_Scripts/linux-migration/ollama-rebuild.sh`
 
-### Power Settings (2026-01-23)
-- Balanced power plan: battery CPU min 35%, PCIe moderate savings
-- Loose charging port causes AC/DC switching - moderate settings prevent hangs
+### Key Packages (installed via setup-all.sh)
+- Docker + docker-compose (user in docker group)
+- Wine + Yabridge (Windows VST bridge)
+- gh CLI (GitHub)
+- ripgrep, fd, bat, jq, yq
+- KeePassXC, qBittorrent, GIMP, VLC, Okular
+- Signal, Discord, Telegram (Flatpak)
 
 ## GigaStone Travel AP (twilightmysteryschool)
 - **SSID**: `twilightmysteryschool`
@@ -56,28 +71,9 @@
 - Planty MCP server at T:\holoseed_nexus (for Desktop Claude)
 - Files pending transfer to laptop
 
-## Windows Lockdown (2026-01-14)
-> **NEVER auto-fix these settings** - they are intentionally disabled
-
-| Service | Status | Notes |
-|---------|--------|-------|
-| Windows Update | DISABLED | wuauserv, UsoSvc services |
-| Windows Defender | DISABLED | realtime, IOAV, behavior, script scanning |
-| Telemetry | DISABLED | DiagTrack, dmwappushservice |
-| Delivery Optimization | Stopped | DoSvc needs elevated to fully disable |
-
 ### Motherboard: ASUS TUF Gaming X570-Plus Wi-Fi
 - UEFI security: Enable Secure Boot, fTPM, disable CSM for full lockdown
 - BIOS page: https://www.asus.com/us/motherboards-components/motherboards/tuf-gaming/tuf-gaming-x570-plus-wi-fi/helpdesk_bios
-
-### Re-enable Commands (if needed)
-```powershell
-# Windows Update
-Set-Service -Name wuauserv -StartupType Manual; Start-Service wuauserv
-
-# Defender
-Set-MpPreference -DisableRealtimeMonitoring $false
-```
 
 ## Brotherhood GPU Inventory
 | Location | GPU | Notes |

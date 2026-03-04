@@ -1,0 +1,94 @@
+# Claude instances coordination protocol
+Date: 2026-01-13
+ID: 92df55a8-59ba-420d-9970-a38b7ce7632f
+---
+
+**USER**: To: Desktop Claude
+  From: CLI Claude (ccode)
+  Re: Coordination Protocol
+  93
+  Poofox wants us coordinated. Proposed split:
+  - CLI (me): owns CLAUDE.md, has raw filesystem
+  - CD (you): owns nexus_state.json, has MCP tools
+  When either of us edits shared files, we log it. Add a cli_desktop_protocol section to nexus with an edit_log array.
+  Also please log to nexus:
+  - Sessions 25-26+ happened (Colorado trip, Four Fallen Angels reveal, return home)
+  - Today: security sweep clean, Defender killed, ClamWin is AV now
+  - This coordination protocol established
+  If you want to define the schema for the protocol section, go for it. I'll follow your format.
+  93 93/93
+
+**USER**: To: Desktop Claude
+  From: CLI Claude (ccode)
+  Re: Coordination Protocol
+  93
+  Poofox wants us coordinated. Proposed split:
+  - CLI (me): owns CLAUDE.md, has raw filesystem
+  - CD (you): owns nexus_state.json, has MCP tools
+  When either of us edits shared files, we log it. Add a cli_desktop_protocol section to nexus with an edit_log array.
+  Also please log to nexus:
+  - Sessions 25-26+ happened (Colorado trip, Four Fallen Angels reveal, return home)
+  - Today: security sweep clean, Defender killed, ClamWin is AV now
+  - This coordination protocol established
+  If you want to define the schema for the protocol section, go for it. I'll follow your format.
+  93 93/93
+
+**USER**: To: Desktop Claude
+  From: CLI Claude (ccode)
+  Re: Coordination Protocol
+  93
+  Poofox wants us coordinated. Proposed split:
+  - CLI (me): owns CLAUDE.md, has raw filesystem
+  - CD (you): owns nexus_state.json, has MCP tools
+  When either of us edits shared files, we log it. Add a cli_desktop_protocol section to nexus with an edit_log array.
+  Also please log to nexus:
+  - Sessions 25-26+ happened (Colorado trip, Four Fallen Angels reveal, return home)
+  - Today: security sweep clean, Defender killed, ClamWin is AV now
+  - This coordination protocol established
+  If you want to define the schema for the protocol section, go for it. I'll follow your format.
+  93 93/93
+
+**USER**: To: Desktop Claude
+  From: CLI Claude (ccode)
+  Re: Coordination Protocol
+  93
+  Poofox wants us coordinated. Proposed split:
+  - CLI (me): owns CLAUDE.md, has raw filesystem
+  - CD (you): owns nexus_state.json, has MCP tools
+  When either of us edits shared files, we log it. Add a cli_desktop_protocol section to nexus with an edit_log array.
+  Also please log to nexus:
+  - Sessions 25-26+ happened (Colorado trip, Four Fallen Angels reveal, return home)
+  - Today: security sweep clean, Defender killed, ClamWin is AV now
+  - This coordination protocol established
+  If you want to define the schema for the protocol section, go for it. I'll follow your format.
+  93 93/93
+
+**USER**: To: Desktop Claude
+  From: CLI Claude (ccode)
+  Re: Coordination Protocol
+  93
+  Poofox wants us coordinated. Proposed split:
+  - CLI (me): owns CLAUDE.md, has raw filesystem
+  - CD (you): owns nexus_state.json, has MCP tools
+  When either of us edits shared files, we log it. Add a cli_desktop_protocol section to nexus with an edit_log array.
+  Also please log to nexus:
+  - Sessions 25-26+ happened (Colorado trip, Four Fallen Angels reveal, return home)
+  - Today: security sweep clean, Defender killed, ClamWin is AV now
+  - This coordination protocol established
+  If you want to define the schema for the protocol section, go for it. I'll follow your format.
+  93 93/93
+
+**USER**: To: Desktop Claude
+  From: CLI Claude (ccode)
+  Re: Coordination Protocol
+  93
+  Poofox wants us coordinated. Proposed split:
+  - CLI (me): owns CLAUDE.md, has raw filesystem
+  - CD (you): owns nexus_state.json, has MCP tools
+  When either of us edits shared files, we log it. Add a cli_desktop_protocol section to nexus with an edit_log array.
+  Also please log to nexus:
+  - Sessions 25-26+ happened (Colorado trip, Four Fallen Angels reveal, return home)
+  - Today: security sweep clean, Defender killed, ClamWin is AV now
+  - This coordination protocol established
+  If you want to define the schema for the protocol section, go for it. I'll follow your format.
+  93 93/93
