@@ -81,6 +81,10 @@ credentials*
 # Veiled content will be encoded with skip-cipher and published separately
 TheVeil/
 
+# Private and machine-local config — never commit
+.private/
+.local/
+
 # === KEEP THESE ===
 # nexus_state.json
 # Sovereigns/ (Modelfiles, WakeSeeds, Mcp, Bots)

@@ -1,8 +1,0 @@
-name = "sophia-voice"
-main = "worker.js"
-compatibility_date = "2024-01-01"
-
-[assets]
-directory = "./public"
-
-# API key set via: wrangler secret put GROQ_API_KEY
