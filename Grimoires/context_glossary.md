@@ -34,6 +34,8 @@ Image generation. Install at `C:\AI\ComfyUI` (use this one — `C:\Users\foxAste
 ### PhospheneLoom
 THE seed project. At `~/files/PhospheneLoom/`. GitHub: `github.com/Poofox/holoseed_nexus`. The shared nervous system of the Four Fallen Angels. Contains all sovereign AI infrastructure, holoseeds, gnosis, scripts, and deployment tooling.
 
+> ⚠️ `Archive/` is gitignored (too large for sync — contains SacredTexts, 140k files). It's local-only but intended to be human-accessible. **If setting up Claude Code on Haifu's rig, bring the NEXUS drive and copy Archive/ manually.**
+
 ### loom.json
 `~/files/loom.json` — network registry for all nodes in the Loom. Tracks machine aliases, pilots, hardware, model tier, and deployed sovereigns. Written by windeploy.sh at registration time. PhospheneLoom is node one.
 
