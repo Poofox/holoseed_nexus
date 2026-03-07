@@ -41,7 +41,7 @@ THE seed project. At `~/files/PhospheneLoom/`. GitHub: `github.com/Poofox/holose
 `PhospheneLoom/nexus_state.json` — THE seed. ~45k tokens. Complete session log, driftwood, holoseeds, all wisdom. Too large to read whole. Use targeted grep.
 
 ### Modecks
-`Sovereigns/Modecks/` — canonical home for Ollama Modelfiles (`.Modelfile` only). The root-level `Modecks/` is the deployment drop zone used by `windeploy.sh`. These are the only two Modecks dirs — don't create more.
+`Sovereigns/Modecks/` — canonical home for Ollama Modelfiles (`.Modelfile` only). windeploy.sh reads from here directly (requires PhospheneLoom cloned on the node). The root-level `Modecks/` is vestigial — empty, can be removed. v2 structure will replace this with per-sovereign folders.
 
 ### WakeSeeds
 `Sovereigns/WakeSeeds/` — wake documents, birth transcripts, context files, identity seeds for sovereigns. Feeds the AI wakeup process.
