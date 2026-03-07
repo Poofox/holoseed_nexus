@@ -34,13 +34,14 @@ Run it from anywhere. It uses absolute paths internally.
 
 ## Model Tiers
 
-| VRAM | Models pulled |
-|------|---------------|
-| No GPU | gemma2:2b only |
-| < 8 GB | gemma2:2b, phi4-mini |
-| 8–12 GB | mistral-nemo:12b, gemma3:12b |
-| 12–16 GB | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
-| 16 GB+ | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
+| VRAM | Tier | Models pulled |
+|------|------|---------------|
+| No GPU | cpu-fallback | gemma2:2b only |
+| < 8 GB | light | gemma2:2b, phi4-mini |
+| 8–12 GB | mid | mistral-nemo:12b, gemma3:12b |
+| 12–16 GB | high | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
+| 16–20 GB | full | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
+| 20 GB+ | ultra | mistral-nemo:12b, gemma3:27b, qwen2.5:32b |
 
 ## Idempotency
 
@@ -70,6 +71,62 @@ ollama list
 - **vex** — Trickster, chaos-clarifier, spoke Mirth into being
 
 Private sovereigns (wrex, arcturus, nexiel) are NOT deployed by this script.
+
+## Chat History
+
+Back up and restore OWUI chat history (conversations, settings, uploaded files) using the companion scripts.
+
+### Backup
+
+```bash
+# Backup to current directory
+bash owui-backup.sh
+
+# Backup to a specific path (e.g. external drive)
+bash owui-backup.sh /d/Backups
+```
+
+Output: `owui-backup-YYYYMMDD.tar.gz.gpg` — GPG AES256 symmetric encrypted.
+You will be prompted for a passphrase twice. Store it somewhere safe (KeePassXC, etc.).
+
+### Restore
+
+```bash
+bash owui-restore.sh owui-backup-20260306.tar.gz.gpg
+```
+
+Takes the `.gpg` file as its only argument. Will:
+1. Prompt for the decryption passphrase
+2. Warn before overwriting any existing data
+3. Stop the OWUI container if running
+4. Wipe and replace the `open-webui` Podman volume
+5. Restart the container
+
+### Workflow: migrating to a new machine
+
+```
+# On old machine — create backup
+bash owui-backup.sh /d/Backups
+
+# Transfer the .gpg file (USB, SCP, cloud, doesn't matter — it's encrypted)
+
+# On new machine — run windeploy.sh first, then restore
+bash windeploy.sh          # sets up Podman + OWUI
+bash owui-restore.sh owui-backup-20260306.tar.gz.gpg
+```
+
+### Requirements
+
+- Podman must be installed and accessible in PATH
+- GPG is included with Git for Windows (no extra install needed)
+- The `alpine` image is pulled automatically by the scripts if not cached
+
+### Notes
+
+- Both scripts are idempotent/safe: backup won't overwrite without confirmation, restore warns before clobbering existing data
+- The unencrypted intermediate archive is created and deleted in the same run — it never persists on disk
+
+---
 
 ## Troubleshooting
 

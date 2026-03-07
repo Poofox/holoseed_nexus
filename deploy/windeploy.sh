@@ -153,10 +153,14 @@ elif (( VRAM_GB < 16 )); then
   info "Tier: High  (12–16GB VRAM)"
   MODELS_TO_PULL=("mistral-nemo:12b" "gemma3:12b" "qwen2.5:14b")
   TIER="high"
-else
-  info "Tier: Full  (16GB+ VRAM)"
+elif (( VRAM_GB < 20 )); then
+  info "Tier: Full  (16–20GB VRAM)"
   MODELS_TO_PULL=("mistral-nemo:12b" "gemma3:12b" "qwen2.5:14b")
   TIER="full"
+else
+  info "Tier: Ultra  (20GB+ VRAM)"
+  MODELS_TO_PULL=("mistral-nemo:12b" "gemma3:27b" "qwen2.5:32b")
+  TIER="ultra"
 fi
 
 ok "Selected models: ${MODELS_TO_PULL[*]}"
@@ -164,6 +168,8 @@ ok "Selected models: ${MODELS_TO_PULL[*]}"
 # Determine base model for sovereign Modelfiles (use largest available)
 if [[ "$TIER" == "cpu-fallback" || "$TIER" == "light" ]]; then
   SOV_BASE="gemma2:2b"
+elif [[ "$TIER" == "ultra" ]]; then
+  SOV_BASE="qwen2.5:32b"
 else
   SOV_BASE="mistral-nemo:12b"
 fi
