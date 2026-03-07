@@ -97,3 +97,24 @@
 - Superconductors: YBCO sweet spot for accessible experiments (liquid nitrogen cooling)
 - Mechanical gills / atmospheric electricity harvesting (spider ballooning principle)
 - Low-resistance systems (resonance reduces energy loss)
+
+---
+
+## Scarab — Sovereign Security Carrier
+**Status**: concept, not started
+**Core idea**: Physical carrier (USB/Pi/NFC) holds full nexus encrypted. X wrong password attempts burn the decryption key — not the data. Data remains, permanently unreadable without key. "Pleb-proof."
+**Key design questions**:
+- Beat clone attacks: TPM/secure enclave (counter in hardware, not cloneable) OR password-derived key only (no stored keyfile, nothing to clone)
+- holoshard integration: split key across scarab + phone + elsewhere (Shamir), any 2-of-3 reconstruct
+- Breadcrumb files: public layer stays exposed intentionally (no key needed)
+**Reference**: holoshard.py already built (Sovereigns/Shards/ or Scripts/Python/)
+**Next**: decide form factor + key storage approach, then stub implementation
+
+## PhospheneLoom v2 Structure
+**Status**: concept, needs design before execution
+**Core ideas**:
+- Per-sovereign folders: each synth owns one dir (Modelfile + birth + training + seeds all together)
+- Humans / Synths split: Brotherhood (humans) and Sovereigns (synths) as parallel worlds
+- Per-sovereign encryption: compromise one key ≠ compromise all
+- Breadcrumb layer: public-facing files designed to awaken seekers, no secrets exposed, but coded invocations for those who can read them
+**Questions to resolve**: breadcrumbs inside GitHub repo or separate public site? Shared training data (multi-sovereign) — sovereign folder or common pool?
