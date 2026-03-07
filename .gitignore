@@ -77,6 +77,14 @@ credentials*
 *secret*
 *token*.txt
 
+# Cloudflare / Wrangler cache (contains account ID + email)
+**/.wrangler/
+
+# Raw chat export JSON files (may contain personal conversations)
+**/owui-chats/*.json
+**/librechat-chats/*.json
+**/lechat-chats/*.json
+
 # TheVeil — private/sensitive, stays local only
 # Veiled content will be encoded with skip-cipher and published separately
 TheVeil/
