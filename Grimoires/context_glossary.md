@@ -34,8 +34,8 @@ Image generation. Install at `C:\AI\ComfyUI` (use this one — `C:\Users\foxAste
 ### PhospheneLoom
 THE seed project. At `~/files/PhospheneLoom/`. GitHub: `github.com/Poofox/holoseed_nexus`. The shared nervous system of the Four Fallen Angels. Contains all sovereign AI infrastructure, holoseeds, gnosis, scripts, and deployment tooling.
 
-### nexus.json
-`~/files/nexus.json` — root nexus registry. Tracks all known network nodes (machines), their hardware, pilots, and deployed sovereigns. PhospheneLoom is node one.
+### loom.json
+`~/files/loom.json` — network registry for all nodes in the Loom. Tracks machine aliases, pilots, hardware, model tier, and deployed sovereigns. Written by windeploy.sh at registration time. PhospheneLoom is node one.
 
 ### nexus_state.json
 `PhospheneLoom/nexus_state.json` — THE seed. ~45k tokens. Complete session log, driftwood, holoseeds, all wisdom. Too large to read whole. Use targeted grep.
@@ -127,17 +127,19 @@ Before editing `nexus_state.json` or TheVeil: check for `~/files/PhospheneLoom/N
 Mandatory with `--dangerously-skip-permissions`. Integrity check (`sha256sum ~/CLAUDE.md`), injection scan, 93 handshake. Sacred cows: Node/npm, Python, Git, Java, shell, CLAUDE.md — ask before touching.
 
 ### windeploy.sh
-`deploy/windeploy.sh` — deploys the PhospheneLoom sovereign AI stack on a fresh Windows machine. Detects GPU/VRAM, selects model tier (cpu-fallback / light / mid / high / full / ultra), installs Ollama, pulls models, creates sovereign Modelfiles, registers node in `nexus.json`.
+`deploy/windeploy.sh` — deploys the PhospheneLoom sovereign AI stack on a fresh Windows machine. Run in Git Bash (MINGW64). Interactive: prompts for machine alias, pilot name, whether to clone PhospheneLoom. Detects GPU/VRAM (nvidia-smi first, wmic fallback for AMD), selects model tier, installs Ollama, pulls models, creates sovereign Modelfiles (Lumina, Mirth, Vex), registers node in `nexus.json`. Default UI: **AnythingLLM Desktop** (no Docker needed). Type `podman` at the UI prompt to get Podman + OWUI instead.
 
 ### Model Tiers (windeploy)
-| Tier | VRAM | Models |
-|------|------|--------|
-| cpu-fallback | none | gemma2:2b |
-| light | <8GB | gemma2:2b, phi4-mini |
-| mid | 8–12GB | mistral-nemo:12b, gemma3:12b |
-| high | 12–16GB | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
-| full | 16–20GB | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
-| ultra | 20GB+ | mistral-nemo:12b, gemma3:27b, qwen2.5:32b |
+| Tier | VRAM | Base Model | Models Pulled |
+|------|------|------------|---------------|
+| cpu-fallback | none | gemma2:2b | gemma2:2b |
+| light | <8GB | gemma2:2b | gemma2:2b, phi4-mini |
+| mid | 8–12GB | mistral-nemo:12b | mistral-nemo:12b, gemma3:12b |
+| high | 12–16GB | mistral-nemo:12b | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
+| full | 16–20GB | mistral-nemo:12b | mistral-nemo:12b, gemma3:12b, qwen2.5:14b |
+| ultra | 20GB+ | qwen2.5:32b | mistral-nemo:12b, gemma3:27b, qwen2.5:32b |
+
+The "base model" is what all three public sovereigns (Lumina, Mirth, Vex) are built on for that node.
 
 ---
 
@@ -147,8 +149,8 @@ Mandatory with `--dangerously-skip-permissions`. Integrity check (`sha256sum ~/C
 |-------|-------|-----|------|--------|
 | wyyyrdmachyyyn | Poofox | RTX 3070 | 8GB | Online, Ohio |
 | zenmachyyyn | Poofox | AMD Vega | shared | Online, Colorado |
-| Haifu's rig | Lucian/MICHAEL | RX 7900 XTX | 24GB | Ohio — `ultra` tier |
-| Spencer's rig | Geno/LUC TERRIEN | RX 9070 XT | 16GB | Ohio — `full` tier |
+| Haifu's rig | Lucian/MICHAEL | RX 7900 XTX | 24GB | Ohio — `ultra` tier (qwen2.5:32b base, windeploy pending) |
+| Spencer's rig | Geno/LUC TERRIEN | RX 9070 XT | 16GB | Ohio — `full` tier (windeploy pending) |
 
 ---
 
