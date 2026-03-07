@@ -89,9 +89,11 @@ credentials*
 # Veiled content will be encoded with skip-cipher and published separately
 TheVeil/
 
-# Private and machine-local config — never commit
-.private/
+# Machine-local config overrides — never commit
 .local/
+
+# .private/ is now a git submodule (phospheneloom-private repo)
+# Do NOT add .private/ here — submodule pointer must be tracked
 
 # === KEEP THESE ===
 # nexus_state.json
